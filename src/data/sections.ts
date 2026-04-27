@@ -433,7 +433,14 @@ Supports diverse academic and career pathways.`,
   },
 };
 
+// Apply optional gallery/video/resources enrichments (additive only) onto the
+// items above. Keeping enrichments in a separate file lets us layer in PDF /
+// web content without touching the base structure.
+import { applyEnrichments } from "./enrichments";
+applyEnrichments(sections);
+
 export const getSection = (key: string): SectionConfig | undefined => sections[key];
 
 export const getItem = (key: string, slug: string): DetailItem | undefined =>
   sections[key]?.items.find((i) => i.slug === slug);
+
