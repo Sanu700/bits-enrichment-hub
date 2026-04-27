@@ -92,7 +92,7 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
       </section>
 
       {/* Wide media banner — gives every detail page a cinematic photo space */}
-      <section className="px-6 md:px-12 lg:px-20 -mt-2">
+      <section className="px-6 md:px-12 lg:px-20 pt-6 md:pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
