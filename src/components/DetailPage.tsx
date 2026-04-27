@@ -153,6 +153,26 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
               </motion.div>
             )}
 
+            {item.gallery && item.gallery.length > 0 && (
+              <MiniGalleryCarousel
+                images={item.gallery}
+                label={`${item.title} · Gallery`}
+              />
+            )}
+
+            {item.video && <VideoSpotlight video={item.video} />}
+
+            {item.resources && item.resources.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <ResourceLinks resources={item.resources} />
+              </motion.div>
+            )}
+
             {item.contacts && item.contacts.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
