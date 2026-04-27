@@ -3,6 +3,9 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Phone, Camera } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
+import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
+import VideoSpotlight from "@/components/VideoSpotlight";
+import ResourceLinks from "@/components/ResourceLinks";
 import { getItem, getSection } from "@/data/sections";
 import heroLibrary from "@/assets/hero-library.jpg";
 import heroCampus from "@/assets/hero-campus.jpg";
