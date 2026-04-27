@@ -3,6 +3,9 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Phone, Camera } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
+import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
+import VideoSpotlight from "@/components/VideoSpotlight";
+import ResourceLinks from "@/components/ResourceLinks";
 import { getItem, getSection } from "@/data/sections";
 import heroLibrary from "@/assets/hero-library.jpg";
 import heroCampus from "@/assets/hero-campus.jpg";
@@ -147,6 +150,26 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
                     </li>
                   ))}
                 </ul>
+              </motion.div>
+            )}
+
+            {item.gallery && item.gallery.length > 0 && (
+              <MiniGalleryCarousel
+                images={item.gallery}
+                label={`${item.title} · Gallery`}
+              />
+            )}
+
+            {item.video && <VideoSpotlight video={item.video} />}
+
+            {item.resources && item.resources.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <ResourceLinks resources={item.resources} />
               </motion.div>
             )}
 

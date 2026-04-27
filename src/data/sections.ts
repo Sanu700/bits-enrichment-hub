@@ -1,5 +1,28 @@
 import { GraduationCap, FileCheck, Users, UserCheck, Microscope, Heart, Award, HelpCircle, LucideIcon } from "lucide-react";
 
+export interface GalleryImage {
+  src: string;
+  caption?: string;
+  alt?: string;
+}
+
+export interface VideoEmbed {
+  /** YouTube embed URL or any iframe-embeddable video URL */
+  url: string;
+  title: string;
+  caption?: string;
+  /** Optional poster/cover image shown before embed loads */
+  poster?: string;
+}
+
+export interface ResourceLink {
+  label: string;
+  url: string;
+  description?: string;
+  /** lucide icon name kept as string to keep data layer JSON-friendly */
+  icon?: "link" | "download" | "external" | "phone" | "mail" | "book" | "shield";
+}
+
 export interface DetailItem {
   slug: string;
   title: string;
@@ -7,6 +30,12 @@ export interface DetailItem {
   detail: string;
   features?: string[];
   contacts?: { label: string; value: string }[];
+  /** Optional — mini moving image carousel rendered inside detail page */
+  gallery?: GalleryImage[];
+  /** Optional — embedded video block */
+  video?: VideoEmbed;
+  /** Optional — official resource / link blocks */
+  resources?: ResourceLink[];
 }
 
 export interface SectionConfig {
@@ -404,7 +433,14 @@ Supports diverse academic and career pathways.`,
   },
 };
 
+// Apply optional gallery/video/resources enrichments (additive only) onto the
+// items above. Keeping enrichments in a separate file lets us layer in PDF /
+// web content without touching the base structure.
+import { applyEnrichments } from "./enrichments";
+applyEnrichments(sections);
+
 export const getSection = (key: string): SectionConfig | undefined => sections[key];
 
 export const getItem = (key: string, slug: string): DetailItem | undefined =>
   sections[key]?.items.find((i) => i.slug === slug);
+
