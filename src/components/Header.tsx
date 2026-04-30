@@ -300,14 +300,14 @@ const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="pl-9 pr-4 py-1 space-y-0.5">
-                          <Link to={item.path} className="block py-2 px-3 rounded-lg text-[13px] font-body font-semibold text-foreground hover:bg-secondary/60 transition-colors">
+                          <Link to={item.path} className="block py-2 px-3 rounded-lg text-[13px] font-body font-semibold text-white hover:bg-white/10 transition-colors">
                             Overview
                           </Link>
                           {item.children.map((child) => (
                             <Link
                               key={child.path}
                               to={child.path}
-                              className="block py-2 px-3 rounded-lg text-[13px] font-body text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                              className="block py-2 px-3 rounded-lg text-[13px] font-body text-white/65 hover:text-white hover:bg-white/10 transition-colors"
                             >
                               {child.label}
                             </Link>
