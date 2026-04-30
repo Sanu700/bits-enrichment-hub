@@ -148,14 +148,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-700 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-700 text-white ${
         scrolled
-          ? "bg-background/95 backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.18)] border-b border-border/60"
-          : "bg-background/85 backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--navy)/0.25)] border-b border-border/40"
+          ? "bg-black/95 backdrop-blur-2xl shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7)] border-b border-white/10"
+          : "bg-black/90 backdrop-blur-xl shadow-[0_4px_20px_-8px_rgba(0,0,0,0.6)] border-b border-white/10"
       }`}
     >
       {/* Subtle bottom fade for separation against hero imagery */}
-      <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-background/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
       <div className="h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -167,31 +167,31 @@ const Header = () => {
               <div className="absolute -bottom-0.5 -right-2.0 w-3 h-3 rounded-full bg-teal border-2 border-background animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-foreground leading-tight">
+              <span className="font-display text-lg font-bold tracking-tight text-white leading-tight">
                 BITS Hyderabad
               </span>
-              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-muted-foreground/70">
+              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/60">
                 Student Welfare Division
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-0.5 bg-secondary/50 rounded-2xl p-1.5 border border-border/30">
+          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-0.5 bg-white/5 rounded-2xl p-1.5 border border-white/10">
             {navItems.map((item) => (
               <div key={item.path} className="relative">
                 <button
                   onMouseEnter={() => setOpenDropdown(item.path)}
                   onClick={() => setOpenDropdown(openDropdown === item.path ? null : item.path)}
                   className={`relative px-3 py-2 rounded-xl text-[12px] font-body font-semibold transition-all duration-300 flex items-center gap-1 ${
-                    isActive(item.path) ? "text-foreground bg-card shadow-md border border-border/50" : "text-muted-foreground hover:text-foreground"
+                    isActive(item.path) ? "text-white bg-white/10 shadow-md border border-white/15" : "text-white/70 hover:text-white"
                   }`}
                 >
                   {isActive(item.path) && (
                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${item.color})` }} />
                   )}
                   {item.label}
-                  {item.children && <ChevronDown className="w-3 h-3 opacity-50" />}
+                  {item.children && <ChevronDown className="w-3 h-3 opacity-60" />}
                 </button>
 
                 {/* Dropdown */}
@@ -236,7 +236,7 @@ const Header = () => {
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-2">
-            <button className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-all duration-300">
+            <button className="p-2.5 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300">
               <Search className="w-4 h-4" />
             </button>
             <Link
@@ -250,10 +250,10 @@ const Header = () => {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2.5 rounded-xl hover:bg-secondary/80 transition-colors"
+            className="lg:hidden p-2.5 rounded-xl hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
+            {mobileOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
           </button>
         </div>
       </div>
@@ -268,7 +268,7 @@ const Header = () => {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden overflow-hidden"
           >
-            <nav className="px-6 py-5 space-y-1 bg-background/95 backdrop-blur-2xl border-t border-border/30 max-h-[75vh] overflow-y-auto">
+            <nav className="px-6 py-5 space-y-1 bg-black/95 backdrop-blur-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.path}
@@ -280,8 +280,8 @@ const Header = () => {
                     onClick={() => setMobileExpanded(mobileExpanded === item.path ? null : item.path)}
                     className={`flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 cursor-pointer ${
                       isActive(item.path)
-                        ? "text-foreground bg-card shadow-sm border border-border/50"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                        ? "text-white bg-white/10 shadow-sm border border-white/15"
+                        : "text-white/70 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span className="w-2 h-2 rounded-full shrink-0" style={{ background: `hsl(${item.color})` }} />
@@ -300,14 +300,14 @@ const Header = () => {
                         className="overflow-hidden"
                       >
                         <div className="pl-9 pr-4 py-1 space-y-0.5">
-                          <Link to={item.path} className="block py-2 px-3 rounded-lg text-[13px] font-body font-semibold text-foreground hover:bg-secondary/60 transition-colors">
+                          <Link to={item.path} className="block py-2 px-3 rounded-lg text-[13px] font-body font-semibold text-white hover:bg-white/10 transition-colors">
                             Overview
                           </Link>
                           {item.children.map((child) => (
                             <Link
                               key={child.path}
                               to={child.path}
-                              className="block py-2 px-3 rounded-lg text-[13px] font-body text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
+                              className="block py-2 px-3 rounded-lg text-[13px] font-body text-white/65 hover:text-white hover:bg-white/10 transition-colors"
                             >
                               {child.label}
                             </Link>
@@ -318,7 +318,7 @@ const Header = () => {
                   </AnimatePresence>
                 </motion.div>
               ))}
-              <div className="pt-3 mt-3 border-t border-border/30">
+              <div className="pt-3 mt-3 border-t border-white/10">
                 <Link
                   to="/help"
                   onClick={() => setMobileOpen(false)}
