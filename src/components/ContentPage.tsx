@@ -86,10 +86,27 @@ const ContentPage = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="mt-5 text-base md:text-lg font-body max-w-xl text-white/45"
+                className="mt-5 text-base md:text-lg font-body max-w-xl text-white/75 leading-relaxed"
               >
                 {subtitle}
               </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="mt-7 flex flex-wrap gap-3"
+              >
+                <a
+                  href="#explore"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r ${gradient} shadow-lg hover:scale-[1.03] transition-transform`}
+                >
+                  Explore <ArrowRight className="w-4 h-4" />
+                </a>
+              </motion.div>
             </div>
           </div>
         </div>
