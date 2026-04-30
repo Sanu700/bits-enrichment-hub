@@ -127,7 +127,15 @@ const replyFor = (query: string, index: IndexEntry[]): Omit<BotMessage, "id" | "
   const hit = search(query, index);
   if (!hit) {
     return {
-      text: "I couldn't find that on the website. Try browsing the relevant section.",
+      heading: "Need a hand?",
+      text: "I'm not sure about that, but the Student Welfare Division team can help you directly.",
+      bullets: [
+        "Phone: +91-40-6630-3535",
+        "Email: swd@hyderabad.bits-pilani.ac.in",
+        "Hours: Mon–Fri, 9:00 AM – 5:30 PM",
+      ],
+      secondary: "You can also browse the Help section for office contacts (AUGSD, SWD, AGSRD, POSH).",
+      action: { label: "Go to Help Section", to: "/help" },
     };
   }
   const heading = hit.item ? `${hit.item.title} — ${hit.sectionTitle}` : hit.sectionTitle;
