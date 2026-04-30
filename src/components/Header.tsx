@@ -179,21 +179,21 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-0.5 bg-secondary/50 rounded-2xl p-1.5 border border-border/30">
+          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-0.5 bg-white/15 backdrop-blur-md rounded-2xl p-1.5 border border-white/25">
             {navItems.map((item) => (
               <div key={item.path} className="relative">
                 <button
                   onMouseEnter={() => setOpenDropdown(item.path)}
                   onClick={() => setOpenDropdown(openDropdown === item.path ? null : item.path)}
                   className={`relative px-3 py-2 rounded-xl text-[12px] font-body font-semibold transition-all duration-300 flex items-center gap-1 ${
-                    isActive(item.path) ? "text-foreground bg-card shadow-md border border-border/50" : "text-muted-foreground hover:text-foreground"
+                    isActive(item.path) ? "text-foreground bg-white shadow-md" : "text-white hover:text-white hover:bg-white/15"
                   }`}
                 >
                   {isActive(item.path) && (
                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${item.color})` }} />
                   )}
                   {item.label}
-                  {item.children && <ChevronDown className="w-3 h-3 opacity-50" />}
+                  {item.children && <ChevronDown className="w-3 h-3 opacity-70" />}
                 </button>
 
                 {/* Dropdown */}
