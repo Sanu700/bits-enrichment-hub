@@ -150,10 +150,12 @@ const Header = () => {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-700 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.12)] border-b border-border/40"
-          : "bg-background/60 backdrop-blur-xl"
+          ? "bg-background/95 backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.18)] border-b border-border/60"
+          : "bg-background/85 backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--navy)/0.25)] border-b border-border/40"
       }`}
     >
+      {/* Subtle bottom fade for separation against hero imagery */}
+      <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-background/40 to-transparent pointer-events-none" />
       <div className="h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
