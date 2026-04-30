@@ -236,7 +236,7 @@ const Header = () => {
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-2">
-            <button className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-all duration-300">
+            <button className="p-2.5 rounded-xl text-white/75 hover:text-white hover:bg-white/10 transition-all duration-300">
               <Search className="w-4 h-4" />
             </button>
             <Link
@@ -250,10 +250,10 @@ const Header = () => {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2.5 rounded-xl hover:bg-secondary/80 transition-colors"
+            className="lg:hidden p-2.5 rounded-xl hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
+            {mobileOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
           </button>
         </div>
       </div>
