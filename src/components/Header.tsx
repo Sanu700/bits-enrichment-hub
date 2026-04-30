@@ -150,15 +150,17 @@ const Header = () => {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-700 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.18)] border-b border-border/60"
-          : "bg-background/85 backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--navy)/0.25)] border-b border-border/40"
+          ? "bg-[hsl(var(--amber)/0.10)] backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--amber)/0.25)] border-b border-amber/30"
+          : "bg-[hsl(var(--amber)/0.07)] backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--amber)/0.30)] border-b border-amber/20"
       }`}
     >
-      {/* Subtle bottom fade for separation against hero imagery */}
+      {/* Warm amber wash so navbar reads clearly over any hero imagery */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-amber/10 via-transparent to-amber/10 pointer-events-none" />
       <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-background/40 to-transparent pointer-events-none" />
-      <div className="h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
+      <div className="relative h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-18 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
