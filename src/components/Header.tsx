@@ -169,10 +169,10 @@ const Header = () => {
               <div className="absolute -bottom-0.5 -right-2.0 w-3 h-3 rounded-full bg-teal border-2 border-background animate-pulse" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-foreground leading-tight">
+              <span className="font-display text-lg font-bold tracking-tight text-white leading-tight drop-shadow-sm">
                 BITS Hyderabad
               </span>
-              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-muted-foreground/70">
+              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-white/85">
                 Student Welfare Division
               </span>
             </div>
