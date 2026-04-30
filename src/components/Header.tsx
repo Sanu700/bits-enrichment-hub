@@ -318,7 +318,7 @@ const Header = () => {
                   </AnimatePresence>
                 </motion.div>
               ))}
-              <div className="pt-3 mt-3 border-t border-border/30">
+              <div className="pt-3 mt-3 border-t border-white/10">
                 <Link
                   to="/help"
                   onClick={() => setMobileOpen(false)}
