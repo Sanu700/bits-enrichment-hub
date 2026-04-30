@@ -113,7 +113,7 @@ const ContentPage = ({
       </section>
 
       {/* Content Grid */}
-      <section className="uni-section">
+      <section id="explore" className="uni-section scroll-mt-24">
         <motion.div
           variants={container}
           initial="hidden"
