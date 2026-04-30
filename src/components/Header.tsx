@@ -160,7 +160,7 @@ const Header = () => {
       <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-background/40 to-transparent pointer-events-none" />
       <div className="relative h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between h-18 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
