@@ -148,10 +148,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-700 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-700 text-white ${
         scrolled
-          ? "bg-background/95 backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.18)] border-b border-border/60"
-          : "bg-background/85 backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--navy)/0.25)] border-b border-border/40"
+          ? "bg-[hsl(var(--navy)/0.96)] backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--navy)/0.6)] border-b border-white/10"
+          : "bg-[hsl(var(--navy)/0.88)] backdrop-blur-xl shadow-[0_6px_24px_-8px_hsl(var(--navy)/0.55)] border-b border-white/10"
       }`}
     >
       {/* Subtle bottom fade for separation against hero imagery */}
