@@ -268,7 +268,7 @@ const Header = () => {
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="lg:hidden overflow-hidden"
           >
-            <nav className="px-6 py-5 space-y-1 bg-background/95 backdrop-blur-2xl border-t border-border/30 max-h-[75vh] overflow-y-auto">
+            <nav className="px-6 py-5 space-y-1 bg-[hsl(var(--navy)/0.98)] backdrop-blur-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.path}
@@ -280,8 +280,8 @@ const Header = () => {
                     onClick={() => setMobileExpanded(mobileExpanded === item.path ? null : item.path)}
                     className={`flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 cursor-pointer ${
                       isActive(item.path)
-                        ? "text-foreground bg-card shadow-sm border border-border/50"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                        ? "text-white bg-white/15 shadow-sm border border-white/20"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     <span className="w-2 h-2 rounded-full shrink-0" style={{ background: `hsl(${item.color})` }} />
