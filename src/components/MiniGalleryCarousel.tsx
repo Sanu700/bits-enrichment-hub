@@ -66,16 +66,21 @@ const MiniGalleryCarousel = ({ images, label = "Gallery", autoplay = 4500 }: Min
               key={`${img.src}-${i}`}
               className="relative shrink-0 grow-0 basis-full sm:basis-2/3 md:basis-1/2 lg:basis-[55%] pr-3 last:pr-0"
             >
-              <div className="relative h-[220px] sm:h-[260px] md:h-[300px] overflow-hidden rounded-xl group">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl group bg-foreground/5">
                 <img
                   src={img.src}
                   alt={img.alt ?? img.caption ?? `Gallery image ${i + 1}`}
                   loading="lazy"
                   width={1280}
                   height={800}
-                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                  style={{
+                    objectPosition: "center 35%",
+                    filter: "brightness(0.92) contrast(1.08) saturate(0.9) sepia(0.08)",
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/65 via-foreground/15 to-transparent" />
+                <div className="absolute inset-0 bg-[hsl(var(--amber)/0.06)] mix-blend-overlay pointer-events-none" />
                 {img.caption && (
                   <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 inline-flex items-center max-w-fit">
                     <span className="font-body text-[11px] tracking-[0.12em] uppercase text-white/90">

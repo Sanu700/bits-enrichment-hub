@@ -39,15 +39,21 @@ const FeaturedSection = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-foreground/10">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-foreground/10 group bg-foreground/5">
               <img
                 src={heroLibrary}
                 alt="University library"
-                className="w-full h-[400px] md:h-[500px] object-cover"
+                className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
                 loading="lazy"
                 width={1920}
                 height={800}
+                style={{
+                  objectPosition: "center 35%",
+                  filter: "brightness(0.92) contrast(1.08) saturate(0.9) sepia(0.08)",
+                }}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-[hsl(var(--amber)/0.06)] mix-blend-overlay pointer-events-none" />
             </div>
             {/* Floating stat card */}
             <motion.div
