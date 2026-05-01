@@ -1,11 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Phone, Camera } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
 import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
 import VideoSpotlight from "@/components/VideoSpotlight";
 import ResourceLinks from "@/components/ResourceLinks";
+import CinematicImage from "@/components/CinematicImage";
 import { getItem, getSection } from "@/data/sections";
 import heroLibrary from "@/assets/hero-library.jpg";
 import heroCampus from "@/assets/hero-campus.jpg";
@@ -98,21 +99,13 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden h-[220px] md:h-[300px] shadow-xl shadow-foreground/10 group"
+          className="relative max-w-5xl mx-auto"
         >
-          <img
+          <CinematicImage
             src={bannerImages[(item.slug?.length ?? 0) % bannerImages.length]}
             alt={`${item.title} — campus visual`}
-            className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-            loading="lazy"
+            caption={`${section.title}${section.accentText ? ` ${section.accentText}` : ""} · BPHC`}
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-foreground/70 via-foreground/20 to-transparent" />
-          <div className="absolute bottom-5 left-5 md:bottom-7 md:left-8 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20">
-            <Camera className="w-3.5 h-3.5 text-white/85" />
-            <span className="font-body text-[10px] tracking-[0.18em] uppercase text-white/85">
-              {section.title}{section.accentText ? ` ${section.accentText}` : ""} · BPHC
-            </span>
-          </div>
         </motion.div>
       </section>
 
