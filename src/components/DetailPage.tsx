@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Phone, ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
@@ -7,6 +7,7 @@ import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
 import VideoSpotlight from "@/components/VideoSpotlight";
 import ResourceLinks from "@/components/ResourceLinks";
 import CinematicImage from "@/components/CinematicImage";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getItem, getSection } from "@/data/sections";
 import heroLibrary from "@/assets/hero-library.jpg";
 import heroCampus from "@/assets/hero-campus.jpg";
