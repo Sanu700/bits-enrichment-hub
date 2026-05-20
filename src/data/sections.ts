@@ -23,6 +23,14 @@ export interface ResourceLink {
   icon?: "link" | "download" | "external" | "phone" | "mail" | "book" | "shield";
 }
 
+export interface SubItem {
+  title: string;
+  tagline?: string;
+  description: string;
+  videoUrl?: string;
+  link?: string;
+}
+
 export interface DetailItem {
   slug: string;
   title: string;
@@ -36,6 +44,8 @@ export interface DetailItem {
   video?: VideoEmbed;
   /** Optional — official resource / link blocks */
   resources?: ResourceLink[];
+  /** Optional — nested accordion of related items (e.g. individual fests) */
+  subItems?: SubItem[];
 }
 
 export interface SectionConfig {
