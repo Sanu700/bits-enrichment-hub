@@ -197,13 +197,6 @@ Supports diverse academic and career pathways.`,
       {
         slug: "fests",
         title: "Fests",
-        description: "Annual cultural, technical, and sports festivals with national participation.",
-        detail: "Major fests attract 10,000+ participants from across India. Cultural fest features music, dance, art, and literary competitions.\nTechnical fest hosts coding competitions, robotics challenges, and guest lectures.\n Sports fest includes cricket, football, basketball, and athletics tournaments.\n Star-studded pro-shows and DJ events.",
-        features: ["Cultural fest (Oasis)", "Technical fest (APOGEE)", "Sports fest", "Pro-nights & DJ events", "10,000+ visitors"],
-      },
-      {
-        slug: "fests",
-        title: "Fests",
         description: "PEARL, ATMOS, ARENA, Launchpad and Verba Maximus — the five flagship BPHC festivals.",
         detail: "BITS Pilani Hyderabad hosts five flagship student-run fests through the year, each organised by its own department of 200+ students and drawing thousands of participants from across India.\n\nATMOS — South India's largest techno-management fest.\nPEARL — the cultural extravaganza featuring pro-shows, EDM nights and 100+ events.\nARENA — the annual inter-college sports festival.\nLaunchpad — the entrepreneurship & startup summit.\nVerba Maximus — the literary, debate and quizzing fest.",
         features: ["ATMOS · techno-management", "PEARL · cultural & pro-shows", "ARENA · sports", "Launchpad · entrepreneurship", "Verba Maximus · literary", "10,000+ annual footfall"],
