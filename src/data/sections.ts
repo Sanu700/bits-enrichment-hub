@@ -23,6 +23,14 @@ export interface ResourceLink {
   icon?: "link" | "download" | "external" | "phone" | "mail" | "book" | "shield";
 }
 
+export interface SubItem {
+  title: string;
+  tagline?: string;
+  description: string;
+  videoUrl?: string;
+  link?: string;
+}
+
 export interface DetailItem {
   slug: string;
   title: string;
@@ -36,6 +44,8 @@ export interface DetailItem {
   video?: VideoEmbed;
   /** Optional — official resource / link blocks */
   resources?: ResourceLink[];
+  /** Optional — nested accordion of related items (e.g. individual fests) */
+  subItems?: SubItem[];
 }
 
 export interface SectionConfig {
@@ -187,9 +197,44 @@ Supports diverse academic and career pathways.`,
       {
         slug: "fests",
         title: "Fests",
-        description: "Annual cultural, technical, and sports festivals with national participation.",
-        detail: "Major fests attract 10,000+ participants from across India. Cultural fest features music, dance, art, and literary competitions.\nTechnical fest hosts coding competitions, robotics challenges, and guest lectures.\n Sports fest includes cricket, football, basketball, and athletics tournaments.\n Star-studded pro-shows and DJ events.",
-        features: ["Cultural fest (Oasis)", "Technical fest (APOGEE)", "Sports fest", "Pro-nights & DJ events", "10,000+ visitors"],
+        description: "PEARL, ATMOS, ARENA, Launchpad and Verba Maximus — the five flagship BPHC festivals.",
+        detail: "BITS Pilani Hyderabad hosts five flagship student-run fests through the year, each organised by its own department of 200+ students and drawing thousands of participants from across India.\n\nATMOS — South India's largest techno-management fest.\nPEARL — the cultural extravaganza featuring pro-shows, EDM nights and 100+ events.\nARENA — the annual inter-college sports festival.\nLaunchpad — the entrepreneurship & startup summit.\nVerba Maximus — the literary, debate and quizzing fest.",
+        features: ["ATMOS · techno-management", "PEARL · cultural & pro-shows", "ARENA · sports", "Launchpad · entrepreneurship", "Verba Maximus · literary", "10,000+ annual footfall"],
+        subItems: [
+          {
+            title: "PEARL",
+            tagline: "Cultural Fest",
+            description: "BPHC's flagship cultural festival — three nights of pro-shows, EDM, dance-offs, fashion shows, dramatics and 100+ competitive events across music, art and performance.",
+            videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
+            link: "https://www.instagram.com/bitspearl/",
+          },
+          {
+            title: "ATMOS",
+            tagline: "Techno-Management Fest",
+            description: "South India's largest student-run techno-management festival. Robotics, coding, business case competitions, hackathons, guest lectures and corporate sponsorships from 50+ companies.",
+            videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
+            link: "https://www.bits-atmos.org/",
+          },
+          {
+            title: "ARENA",
+            tagline: "Sports Fest",
+            description: "The annual inter-college sports festival. Cricket, football, basketball, athletics, swimming, table tennis and more — with teams from across the country competing on campus grounds.",
+            videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0",
+            link: "https://www.instagram.com/arena_bphc/",
+          },
+          {
+            title: "Launchpad",
+            tagline: "Entrepreneurship Summit",
+            description: "BPHC's entrepreneurship and startup summit. Pitch competitions, founder fireside chats, VC panels and a 48-hour build sprint — connecting students with India's startup ecosystem.",
+            link: "https://www.instagram.com/launchpad.bphc/",
+          },
+          {
+            title: "Verba Maximus",
+            tagline: "Literary Fest",
+            description: "The literary, debate and quizzing festival — parliamentary debates, MUNs, JAMs, slam poetry and quizzes drawing participants from top colleges nationwide.",
+            link: "https://www.instagram.com/verbamaximus/",
+          },
+        ],
       },
       {
         slug: "virtual-tour",
