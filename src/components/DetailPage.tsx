@@ -156,6 +156,82 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
 
             {item.video && <VideoSpotlight video={item.video} />}
 
+            {item.subItems && item.subItems.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="glass-card p-6 md:p-8"
+              >
+                <span className="uni-label inline-flex items-center gap-2">
+                  <Sparkles className="w-3.5 h-3.5 text-accent" />
+                  Explore
+                </span>
+                <h3 className="mt-3 font-display text-xl md:text-2xl text-foreground">
+                  Inside {item.title}
+                </h3>
+
+                <Accordion type="single" collapsible className="mt-6 w-full">
+                  {item.subItems.map((sub, idx) => (
+                    <AccordionItem
+                      key={sub.title}
+                      value={`sub-${idx}`}
+                      className="border-b border-border/50 last:border-b-0"
+                    >
+                      <AccordionTrigger className="hover:no-underline py-5 group">
+                        <div className="flex items-center gap-4 text-left">
+                          <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-[hsl(var(--amber))/0.18] to-[hsl(var(--amber))/0.05] border border-[hsl(var(--amber))/0.25] flex items-center justify-center font-display text-xs font-semibold text-[hsl(var(--amber))]">
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <div>
+                            <div className="font-display text-base md:text-lg text-foreground group-hover:text-accent transition-colors">
+                              {sub.title}
+                            </div>
+                            {sub.tagline && (
+                              <div className="font-body text-xs text-muted-foreground tracking-wide uppercase mt-0.5">
+                                {sub.tagline}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent className="pl-13">
+                        <div className="pl-13 space-y-4">
+                          <p className="font-body text-sm text-foreground/80 leading-relaxed">
+                            {sub.description}
+                          </p>
+                          {sub.videoUrl && (
+                            <div className="aspect-video w-full overflow-hidden rounded-xl border border-border/60">
+                              <iframe
+                                src={sub.videoUrl}
+                                title={`${sub.title} aftermovie`}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                loading="lazy"
+                                className="w-full h-full"
+                              />
+                            </div>
+                          )}
+                          {sub.link && (
+                            <a
+                              href={sub.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 font-body text-sm text-accent hover:underline"
+                            >
+                              Visit {sub.title}
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                          )}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </motion.div>
+            )}
+
             {item.resources && item.resources.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
