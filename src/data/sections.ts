@@ -40,8 +40,10 @@ export interface DetailItem {
   contacts?: { label: string; value: string }[];
   /** Optional — mini moving image carousel rendered inside detail page */
   gallery?: GalleryImage[];
-  /** Optional — embedded video block */
+  /** Optional — single embedded video block */
   video?: VideoEmbed;
+  /** Optional — multiple embedded video cards for richer detail pages */
+  videos?: VideoEmbed[];
   /** Optional — official resource / link blocks */
   resources?: ResourceLink[];
   /** Optional — nested accordion of related items (e.g. individual fests) */
@@ -86,11 +88,17 @@ Supports diverse academic and career pathways.`,
         features: ["Semester I: Aug – Dec", "Semester II: Jan – May", "Mid-sem & comprehensive exams", "Add/Drop windows", "Holiday & exam schedule"],
       },
       {
-        slug: "departments",
-        title: "Departments",
-        description: "Explore academic departments and their faculty, courses, and research.",
-        detail: "Departments include Computer Science, Electronics, Mechanical, Civil, Chemical, Mathematics, Physics, Chemistry, Economics, Humanities, Biological Sciences, and Pharmacy. Each department page features faculty profiles, course listings, research areas, and student achievements.",
-        features: ["Computer Science", "Electronics & Electrical", "Mechanical & Civil", "Chemical & Pharmacy", "Sciences & Humanities", "Management"],
+        slug: "branches-programs",
+        title: "Branches & Programs",
+        description: "Engineering, sciences and interdisciplinary career pathways with a premium campus curriculum.",
+        detail: `BITS Pilani Hyderabad blends classical branches with emerging interdisciplinary programs.
+
+Engineering branches include Computer Science, Electronics & Communication, Mechanical, Civil, Electrical & Electronics, Chemical, Electronics & Instrumentation, Mathematics & Computing, and Environmental & Sustainability.
+
+Science programs span Biological Sciences, Chemistry, Economics, Mathematics, Physics, and Semiconductors & Nanoscience.
+
+Career pathways include software, data science, consulting, core engineering, healthcare, research, and entrepreneurship. Students can pursue double majors, minor programs, and industry-sponsored projects.`,
+        features: ["9 engineering branches", "6 integrated science programs", "Double-major & minor tracks", "Industry-sponsored labs", "Career pathways in core & tech"],
       },
       {
         slug: "academic-buildings",
@@ -197,44 +205,56 @@ Supports diverse academic and career pathways.`,
       {
         slug: "fests",
         title: "Fests",
-        description: "PEARL, ATMOS, ARENA, Launchpad and Verba Maximus — the five flagship BPHC festivals.",
-        detail: "BITS Pilani Hyderabad hosts five flagship student-run fests through the year, each organised by its own department of 200+ students and drawing thousands of participants from across India.\n\nATMOS — South India's largest techno-management fest.\nPEARL — the cultural extravaganza featuring pro-shows, EDM nights and 100+ events.\nARENA — the annual inter-college sports festival.\nLaunchpad — the entrepreneurship & startup summit.\nVerba Maximus — the literary, debate and quizzing fest.",
-        features: ["ATMOS · techno-management", "PEARL · cultural & pro-shows", "ARENA · sports", "Launchpad · entrepreneurship", "Verba Maximus · literary", "10,000+ annual footfall"],
-        subItems: [
-          {
-            title: "PEARL",
-            tagline: "Cultural Fest",
-            description: "BPHC's flagship cultural festival — three nights of pro-shows, EDM, dance-offs, fashion shows, dramatics and 100+ competitive events across music, art and performance.",
-            videoUrl: "https://www.youtube.com/embed/yT-3eMlnzpU",
-            link: "https://www.instagram.com/bitspearl/",
-          },
-          {
-            title: "ATMOS",
-            tagline: "Techno-Management Fest",
-            description: "South India's largest student-run techno-management festival. Robotics, coding, business case competitions, hackathons, guest lectures and corporate sponsorships from 50+ companies.",
-            videoUrl: "https://www.youtube.com/embed/PZwfHQ4p6hQ",
-            link: "https://www.bits-atmos.org/",
-          },
-          {
-            title: "ARENA",
-            tagline: "Sports Fest",
-            description: "The annual inter-college sports festival. Cricket, football, basketball, athletics, swimming, table tennis and more — with teams from across the country competing on campus grounds.",
-            videoUrl: "https://www.youtube.com/embed/JIWNk4zqAfI",
-            link: "https://www.instagram.com/arena_bphc/",
-          },
-          {
-            title: "Launchpad",
-            tagline: "Entrepreneurship Summit",
-            description: "BPHC's entrepreneurship and startup summit. Pitch competitions, founder fireside chats, VC panels and a 48-hour build sprint — connecting students with India's startup ecosystem.",
-            link: "https://www.instagram.com/launchpad.bphc/",
-          },
-          {
-            title: "Verba Maximus",
-            tagline: "Literary Fest",
-            description: "The literary, debate and quizzing festival — parliamentary debates, MUNs, JAMs, slam poetry and quizzes drawing participants from top colleges nationwide.",
-            link: "https://www.instagram.com/verbamaximus/",
-          },
-        ],
+        description: "Annual cultural, technical, sports and innovation festivals that define student energy.",
+        detail: "BITS Hyderabad hosts a tiered fest ecosystem with five flagship experiences. PEARL showcases music, arts and student culture. ATMOS blends technology, design and creative expression. ARENA brings campus sports to a competitive stage. Launchpad celebrates startups, product launches and entreprenurial energy. Verba Maximus spotlights debates, literature and public speaking.",
+        features: ["PEARL · cultural flagship", "ATMOS · tech & design", "ARENA · sports showcase", "Launchpad · startup sprint", "Verba Maximus · literary forum"],
+      },
+      {
+        slug: "pearl",
+        title: "PEARL — Cultural Festival",
+        description: "A premium stage for music, dance, art and creative expression.",
+        detail: `PEARL is the cultural flagship for BITS Hyderabad — a three-day celebration of performing arts, music, dance, drama and live showcases.
+
+Highlights include pro-nights, battle of bands, classical performances, film screenings and art installations.
+
+The festival brings together regional associations, student clubs and international performers for a polished campus experience.`,
+        features: ["Pro-nights & live concerts", "Dance battles & theatre", "Photography & fine arts", "Regional cultural showcases"],
+      },
+      {
+        slug: "atmos",
+        title: "ATMOS — Tech & Creative Fest",
+        description: "Where innovation, design and immersive experiences collide.",
+        detail: `ATMOS blends technology and artistic innovation through workshops, product exhibitions and interactive installations.
+
+Participants experience hackathons, ideathons, design labs, AR/VR showcases, app demos and speaker sessions from industry leaders.`,
+        features: ["Hackathons & ideathons", "Design thinking labs", "AR/VR showcases", "Industry speaker sessions"],
+      },
+      {
+        slug: "arena",
+        title: "ARENA — Sports Festival",
+        description: "Competitive athletics, team sport leagues and campus-wide fitness culture.",
+        detail: `ARENA is the sports fest where varsity leagues, open tournaments and athletic challenges converge.
+
+Cricket, football, basketball, volleyball, athletics and esports competitions run alongside wellness activities and campus sports showcases.`,
+        features: ["Varsity & open tournaments", "Multi-sport leagues", "Athletics & crossfit", "Sports leadership programs"],
+      },
+      {
+        slug: "launchpad",
+        title: "Launchpad — Startup & Innovation",
+        description: "A launchpad for student startups, prototypes, and investor readiness.",
+        detail: `Launchpad brings together young founders, mentors and investors for a weekend of product pitches, incubation clinics and startup showcases.
+
+Teams present MVPs, receive mentorship, and connect with corporate partners and accelerator networks.`,
+        features: ["Startup pitch arena", "Investor mentorship", "Prototype showcase", "Incubation support"],
+      },
+      {
+        slug: "verba-maximus",
+        title: "Verba Maximus — Literary Festival",
+        description: "A high-impact forum for debates, quizzes, writing and public speaking.",
+        detail: `Verba Maximus celebrates the power of words with debates, literary battles, quiz championships and storytelling performances.
+
+Leaders in rhetoric, policymaking and media convene to create a polished platform for student expression.`,
+        features: ["Debate & policy forums", "Quiz leagues", "Creative writing workshops", "Storytelling showcases"],
       },
       {
         slug: "virtual-tour",
@@ -488,4 +508,3 @@ export const getSection = (key: string): SectionConfig | undefined => sections[k
 
 export const getItem = (key: string, slug: string): DetailItem | undefined =>
   sections[key]?.items.find((i) => i.slug === slug);
-

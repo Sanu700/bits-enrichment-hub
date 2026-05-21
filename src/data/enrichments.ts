@@ -29,7 +29,7 @@ import heroCampus from "@/assets/hero-campus.jpg";
 import heroArchway from "@/assets/hero-archway.jpg";
 import heroMain from "@/assets/hero-main.jpg";
 
-type Enrichment = Pick<DetailItem, "gallery" | "video" | "resources">;
+type Enrichment = Pick<DetailItem, "gallery" | "video" | "videos" | "resources">;
 
 /** Map of `${sectionKey}/${slug}` → optional gallery/video/resources */
 export const enrichments: Record<string, Enrichment> = {
@@ -279,6 +279,105 @@ export const enrichments: Record<string, Enrichment> = {
     ],
   },
 
+  "campus-life/pearl": {
+    gallery: [
+      { src: festStage, caption: "Live stage performances" },
+      { src: clubsCultural, caption: "Music, dance, and theatre" },
+    ],
+    videos: [
+      {
+        url: "https://www.youtube.com/embed/yT-3eMlnzpU",
+        title: "PEARL Aftermovie",
+        caption: "An immersive look at BITS Hyderabad's cultural flagship.",
+        poster: festNight,
+      },
+    ],
+    resources: [
+      {
+        label: "PEARL Fest Page",
+        url: "https://www.bits-pilani.ac.in/",
+        description: "Stay updated on performers, schedule and guest events.",
+        icon: "external",
+      },
+    ],
+  },
+
+  "campus-life/atmos": {
+    gallery: [
+      { src: clubsTechnical, caption: "Innovation showcase" },
+      { src: festStage, caption: "Creative installations" },
+    ],
+    videos: [
+      {
+        url: "https://www.youtube.com/embed/PZwfHQ4p6hQ",
+        title: "ATMOS Highlights",
+        caption: "Tech, design and immersive campus energy.",
+        poster: clubsTechnical,
+      },
+    ],
+    resources: [
+      {
+        label: "ATMOS Fest Info",
+        url: "https://www.bits-pilani.ac.in/",
+        description: "Workshop schedules, speaker lineups and project showcases.",
+        icon: "external",
+      },
+    ],
+  },
+
+  "campus-life/arena": {
+    gallery: [
+      { src: festNight, caption: "Sports arena energy" },
+      { src: heroCampus, caption: "Campus fields and courts" },
+    ],
+    videos: [
+      {
+        url: "https://www.youtube.com/embed/JIWNk4zqAfI",
+        title: "ARENA Sports Highlights",
+        caption: "Top sporting moments from campus tournaments.",
+        poster: heroCampus,
+      },
+    ],
+    resources: [
+      {
+        label: "ARENA Schedule",
+        url: "https://www.bits-pilani.ac.in/",
+        description: "Tournament brackets, registration and athlete details.",
+        icon: "external",
+      },
+    ],
+  },
+
+  "campus-life/launchpad": {
+    gallery: [
+      { src: clubsTechnical, caption: "Startup showcases" },
+      { src: heroArchway, caption: "Innovation ecosystems" },
+    ],
+    resources: [
+      {
+        label: "Launchpad Events",
+        url: "https://www.bits-pilani.ac.in/",
+        description: "Entrepreneurship workshops, pitch clinics and mentor meets.",
+        icon: "external",
+      },
+    ],
+  },
+
+  "campus-life/verba-maximus": {
+    gallery: [
+      { src: heroLibrary, caption: "Debate and literary forums" },
+      { src: festStage, caption: "Public speaking stages" },
+    ],
+    resources: [
+      {
+        label: "Verba Maximus Guide",
+        url: "https://www.bits-pilani.ac.in/",
+        description: "Debate formats, quiz events and speaker lineups.",
+        icon: "external",
+      },
+    ],
+  },
+
   "campus-life/virtual-tour": {
     gallery: [
       { src: campusAerial, caption: "Aerial — full campus" },
@@ -500,6 +599,7 @@ export const applyEnrichments = (
     if (!item) continue;
     if (extras.gallery) item.gallery = extras.gallery;
     if (extras.video) item.video = extras.video;
+    if (extras.videos) item.videos = extras.videos;
     if (extras.resources) item.resources = extras.resources;
   }
 };

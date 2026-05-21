@@ -2,26 +2,31 @@ import { useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
-import type { GalleryImage } from "@/data/sections";
 
-interface MiniGalleryCarouselProps {
+interface GalleryImage {
+  src: string;
+  caption?: string;
+  alt?: string;
+  focus?: "center" | "top" | "bottom";
+}
+
+interface Props {
   images: GalleryImage[];
   label?: string;
-  /** auto-advance interval in ms; 0 disables */
   autoplay?: number;
 }
 
-/**
- * Premium, lightweight image carousel themed with the existing design system.
- * Designed to slot inside DetailPage between content blocks — additive, never replacing.
- */
-const MiniGalleryCarousel = ({ images, label = "Gallery", autoplay = 4500 }: MiniGalleryCarouselProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+const MiniGalleryCarousel = ({
+  images,
+  label = "Campus Gallery",
+  autoplay = 4500,
+}: Props) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   useEffect(() => {
     if (!emblaApi || !autoplay) return;
-    const id = window.setInterval(() => emblaApi.scrollNext(), autoplay);
-    return () => window.clearInterval(id);
+    const id = setInterval(() => emblaApi.scrollNext(), autoplay);
+    return () => clearInterval(id);
   }, [emblaApi, autoplay]);
 
   if (!images?.length) return null;
@@ -30,67 +35,59 @@ const MiniGalleryCarousel = ({ images, label = "Gallery", autoplay = 4500 }: Min
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.6 }}
       className="relative"
     >
-      <div className="flex items-center justify-between mb-4">
-        <span className="uni-label inline-flex items-center gap-2">
-          <Camera className="w-3.5 h-3.5 text-accent" />
+      {/* HEADER */}
+      <div className="flex justify-between items-center mb-4">
+        <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+          <Camera className="w-4 h-4 text-orange-500" />
           {label}
         </span>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Previous image"
-            onClick={() => emblaApi?.scrollPrev()}
-            className="w-8 h-8 rounded-full border border-border bg-card/70 backdrop-blur-md flex items-center justify-center hover:border-accent hover:text-accent transition-colors"
-          >
-            <ChevronLeft className="w-4 h-4" />
+
+        <div className="flex gap-2">
+          <button onClick={() => emblaApi?.scrollPrev()} className="btn-circle">
+            <ChevronLeft />
           </button>
-          <button
-            type="button"
-            aria-label="Next image"
-            onClick={() => emblaApi?.scrollNext()}
-            className="w-8 h-8 rounded-full border border-border bg-card/70 backdrop-blur-md flex items-center justify-center hover:border-accent hover:text-accent transition-colors"
-          >
-            <ChevronRight className="w-4 h-4" />
+          <button onClick={() => emblaApi?.scrollNext()} className="btn-circle">
+            <ChevronRight />
           </button>
         </div>
       </div>
+      <div ref={emblaRef} className="overflow-hidden rounded-2xl border border-border/60 bg-card/60 backdrop-blur-md shadow-lg shadow-foreground/5">
+        <div className="flex gap-6">
+          {images.map((img, i) => {
+            const focus =
+              img.focus === "top"
+                ? "object-[center_30%]"
+                : img.focus === "bottom"
+                ? "object-[center_70%]"
+                : "object-center";
 
-      <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/60 backdrop-blur-md shadow-lg shadow-foreground/5" ref={emblaRef}>
-        <div className="flex">
-          {images.map((img, i) => (
-            <div
-              key={`${img.src}-${i}`}
-              className="relative shrink-0 grow-0 basis-full sm:basis-2/3 md:basis-1/2 lg:basis-[55%] pr-3 last:pr-0"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl group bg-foreground/5">
-                <img
-                  src={img.src}
-                  alt={img.alt ?? img.caption ?? `Gallery image ${i + 1}`}
-                  loading="lazy"
-                  width={1280}
-                  height={800}
-                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
-                  style={{
-                    objectPosition: "center 35%",
-                    filter: "brightness(0.92) contrast(1.08) saturate(0.9) sepia(0.08)",
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/65 via-foreground/15 to-transparent" />
-                <div className="absolute inset-0 bg-[hsl(var(--amber)/0.06)] mix-blend-overlay pointer-events-none" />
-                {img.caption && (
-                  <div className="absolute bottom-3 left-3 right-3 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 inline-flex items-center max-w-fit">
-                    <span className="font-body text-[11px] tracking-[0.12em] uppercase text-white/90">
-                      {img.caption}
-                    </span>
-                  </div>
-                )}
+            return (
+              <div key={`${img.src}-${i}`} className="basis-[70%] shrink-0">
+                <div className="relative aspect-[16/10] rounded-3xl overflow-hidden group shadow-xl">
+                  <img
+                    src={img.src}
+                    alt={img.alt ?? img.caption ?? `Gallery image ${i + 1}`}
+                    loading="lazy"
+                    width={1280}
+                    height={800}
+                    className={`w-full h-full object-cover ${focus} transition duration-[1200ms] ease-out group-hover:scale-105 scale-[1.05] brightness-[0.75] contrast-[1.2] saturate-[0.9] [filter:sepia(0.25)_hue-rotate(-8deg)]`}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.7),rgba(0,0,0,0.3),transparent)]" />
+                  <div className="absolute inset-0 bg-[hsl(var(--amber)/0.06)] mix-blend-overlay pointer-events-none" />
+                  {img.caption && (
+                    <div className="absolute bottom-5 left-5 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-md">
+                      <span className="text-xs tracking-[0.2em] uppercase text-white/90">
+                        {img.caption}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </motion.div>

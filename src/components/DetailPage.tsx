@@ -1,12 +1,18 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, Phone, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
-import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
-import VideoSpotlight from "@/components/VideoSpotlight";
-import ResourceLinks from "@/components/ResourceLinks";
+import AnimatedContentBlock from "@/components/AnimatedContentBlock";
+import CTAButton from "@/components/CTAButton";
 import CinematicImage from "@/components/CinematicImage";
+import ExpandableAccordion from "@/components/ExpandableAccordion";
+import MiniGalleryCarousel from "@/components/MiniGalleryCarousel";
+import QuickLinks from "@/components/QuickLinks";
+import ResourceLinks from "@/components/ResourceLinks";
+import StatsGrid from "@/components/StatsGrid";
+import VideoCarousel from "@/components/VideoCarousel";
+import VideoSpotlight from "@/components/VideoSpotlight";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getItem, getSection } from "@/data/sections";
 import heroLibrary from "@/assets/hero-library.jpg";
@@ -115,37 +121,16 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <AnimatedContentBlock
+              title="Overview"
+              subtitle={`A curated deep dive into ${item.title}`}
             >
-              <span className="uni-label">Overview</span>
-              <p className="mt-4 font-body text-base text-foreground/85 leading-[1.85] whitespace-pre-line">
+              <p className="font-body text-base text-foreground/85 leading-[1.85] whitespace-pre-line">
                 {item.detail}
               </p>
-            </motion.div>
+            </AnimatedContentBlock>
 
-            {item.features && item.features.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="glass-card p-8 md:p-10"
-              >
-                <span className="uni-label">Highlights</span>
-                <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                  {item.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 font-body text-sm text-foreground/80">
-                      <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
+            {item.features && item.features.length > 0 && <StatsGrid stats={item.features} />}
 
             {item.gallery && item.gallery.length > 0 && (
               <MiniGalleryCarousel
@@ -232,36 +217,26 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
               </motion.div>
             )}
 
+            {item.videos && item.videos.length > 0 && <VideoCarousel videos={item.videos} />}
+
             {item.resources && item.resources.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-              >
+              <ExpandableAccordion title="Official Resources" summary="Open the most relevant portals and guides.">
                 <ResourceLinks resources={item.resources} />
-              </motion.div>
+              </ExpandableAccordion>
             )}
 
             {item.contacts && item.contacts.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="glass-card p-8"
-              >
-                <span className="uni-label">Contact</span>
-                <ul className="mt-5 space-y-3">
+              <ExpandableAccordion title="Contact & support" summary="Access the right campus office quickly.">
+                <ul className="space-y-3">
                   {item.contacts.map((c) => (
-                    <li key={c.label} className="flex items-center gap-3 font-body text-sm">
+                    <li key={c.label} className="flex items-center gap-3 font-body text-sm text-foreground/90">
                       <Phone className="w-4 h-4 text-accent" />
                       <span className="text-muted-foreground">{c.label}:</span>
-                      <span className="text-foreground font-medium">{c.value}</span>
+                      <span className="font-medium">{c.value}</span>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </ExpandableAccordion>
             )}
 
             {/* CTA */}
@@ -272,12 +247,11 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap gap-3 pt-2"
             >
-              <Button
+              <CTAButton
                 onClick={() => navigate("/help")}
-                className="font-body gradient-accent text-white hover:opacity-90 rounded-full px-8 text-sm font-semibold shadow-lg shadow-amber/20"
-              >
-                Get Help
-              </Button>
+                label="Get Help"
+                className="text-sm"
+              />
               <Button
                 variant="outline"
                 onClick={() => navigate(section.basePath)}
@@ -290,23 +264,35 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
 
           {/* Related sidebar */}
           <aside className="lg:col-span-1">
-            <div className="lg:sticky lg:top-28">
-              <span className="uni-label">More in {section.title}{section.accentText ? ` ${section.accentText}` : ""}</span>
-              <ul className="mt-5 space-y-2">
-                {otherItems.map((other) => (
-                  <li key={other.slug}>
-                    <button
-                      onClick={() => navigate(`${section.basePath}/${other.slug}`)}
-                      className="w-full text-left glass-card p-4 group flex items-center justify-between gap-3"
-                    >
-                      <span className="font-body text-sm text-foreground/85 group-hover:text-accent transition-colors">
-                        {other.title}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-0.5 transition-all" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
+            <div className="lg:sticky lg:top-28 space-y-6">
+              <QuickLinks
+                title={`More in ${section.title}`}
+                items={otherItems.map((other) => ({
+                  label: other.title,
+                  onClick: () => navigate(`${section.basePath}/${other.slug}`),
+                }))}
+              />
+
+              <div className="glass-card p-6">
+                <span className="uni-label">Next step</span>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  Move between adjacent sections, revisit the campus overview, or access support anytime.
+                </p>
+                <div className="mt-6 flex flex-col gap-3">
+                  <CTAButton
+                    onClick={() => navigate(section.basePath)}
+                    label={`Back to ${section.title}`}
+                    className="w-full text-sm"
+                  />
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate("/help")}
+                    className="w-full rounded-2xl text-sm"
+                  >
+                    Need immediate help
+                  </Button>
+                </div>
+              </div>
             </div>
           </aside>
         </div>

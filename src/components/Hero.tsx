@@ -15,7 +15,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="relative min-h-screen min-h-[100svh] overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0">
@@ -31,7 +31,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-40 md:pt-48 pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-32 sm:pt-36 md:pt-48 pb-12 sm:pb-16 md:pb-20">
         <div className="max-w-3xl">
 
           {/* Badge */}
@@ -52,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[0.95] drop-shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.02] md:leading-[0.95] drop-shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
           >
             A Campus Built for
             <br />
@@ -75,10 +75,10 @@ const Hero = () => {
           </motion.p>
 
           {/* Buttons */}
-          <motion.div className="mt-10 flex gap-4">
+          <motion.div className="mt-10 flex flex-wrap gap-4">
             <Button
               onClick={() => navigate("/acads")}
-              className="rounded-full px-8 py-6 text-sm font-semibold bg-gradient-to-r from-amber to-orange-400 text-white shadow-[0_10px_40px_rgba(245,158,11,0.35)] hover:scale-105 transition-all"
+              className="rounded-full px-6 sm:px-8 py-6 text-sm font-semibold bg-gradient-to-r from-amber to-orange-400 text-white shadow-[0_10px_40px_rgba(245,158,11,0.35)] hover:scale-105 transition-all"
             >
               Explore Academics
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -87,7 +87,7 @@ const Hero = () => {
             <Button
   variant="outline"
   onClick={() => navigate("/admissions")}
-  className="rounded-full px-8 py-6 text-sm font-semibold 
+  className="rounded-full px-6 sm:px-8 py-6 text-sm font-semibold 
   border-white/40 text-white 
   bg-white/10 backdrop-blur-md 
   hover:bg-white/20 hover:text-white 
@@ -99,7 +99,7 @@ const Hero = () => {
         </div>
 
         {/* Stats (glass instead of white fade) */}
-        <div className="mt-24 bg-[rgba(15,23,42,0.35)] backdrop-blur-md rounded-2xl py-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:divide-x md:divide-white/10">
+        <div className="mt-14 sm:mt-20 md:mt-24 bg-[rgba(15,23,42,0.35)] backdrop-blur-md rounded-2xl py-6 sm:py-8 grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 md:divide-x md:divide-white/10">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white">

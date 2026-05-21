@@ -22,10 +22,10 @@ const navItems: NavItem[] = [
     color: "var(--amber)",
     children: [
       { label: "Programs (UG, PG, WILP, PhD)", path: "/acads#programs" },
-      { label: "Academic Calendar", path: "/acads#calendar" },
-      { label: "Departments", path: "/acads#departments" },
-      { label: "Academic Buildings", path: "/acads#buildings" },
-      { label: "PS, Placements & Internships", path: "/acads#placements" },
+      { label: "Academic Calendar", path: "/acads#academic-calendar" },
+      { label: "Branches & Programs", path: "/acads#branches-programs" },
+      { label: "Academic Buildings", path: "/acads#academic-buildings" },
+      { label: "PS, Placements & Internships", path: "/acads#ps-placements" },
     ],
   },
   {
@@ -33,11 +33,11 @@ const navItems: NavItem[] = [
     path: "/admissions",
     color: "var(--emerald)",
     children: [
-      { label: "Admission Process", path: "/admissions#process" },
+      { label: "Admission Process", path: "/admissions#admission-process" },
       { label: "Scholarships", path: "/admissions#scholarships" },
       { label: "Loans & Financial Aid", path: "/admissions#loans" },
       { label: "Policies", path: "/admissions#policies" },
-      { label: "Welcome Guide", path: "/admissions#welcome" },
+      { label: "Welcome Guide", path: "/admissions#welcome-guide" },
     ],
   },
   {
@@ -47,10 +47,10 @@ const navItems: NavItem[] = [
     children: [
       { label: "Clubs", path: "/campus-life#clubs" },
       { label: "Hostels & Mess", path: "/campus-life#hostels" },
-      { label: "Campus Places", path: "/campus-life#places" },
-      { label: "Student Union", path: "/campus-life#union" },
+      { label: "Campus Places", path: "/campus-life#campus-places" },
+      { label: "Student Union", path: "/campus-life#student-union" },
       { label: "Fests", path: "/campus-life#fests" },
-      { label: "Virtual Tour", path: "/campus-life#tour" },
+      { label: "Virtual Tour", path: "/campus-life#virtual-tour" },
     ],
   },
   {
@@ -82,7 +82,7 @@ const navItems: NavItem[] = [
     path: "/health",
     color: "var(--sky)",
     children: [
-      { label: "Medical Center", path: "/health#medical" },
+      { label: "Medical Center", path: "/health#medical-center" },
       { label: "MPower (Mental Health)", path: "/health#mpower" },
       { label: "Ambulance", path: "/health#ambulance" },
       { label: "Helplines", path: "/health#helplines" },
@@ -107,7 +107,7 @@ const navItems: NavItem[] = [
       { label: "AUGSD", path: "/help#augsd" },
       { label: "SWD", path: "/help#swd" },
       { label: "AGSRD", path: "/help#agsrd" },
-      { label: "Admin Office", path: "/help#admin" },
+      { label: "Admin Office", path: "/help#admin-office" },
       { label: "SWMC", path: "/help#swmc" },
       { label: "POSH", path: "/help#posh" },
     ],
@@ -117,16 +117,9 @@ const navItems: NavItem[] = [
 const Header = () => {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -134,98 +127,67 @@ const Header = () => {
         setOpenDropdown(null);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
     setOpenDropdown(null);
-    setMobileExpanded(null);
-  }, [location.pathname]);
+    setMobileOpen(false);
+  }, [location.pathname, location.hash]);
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-all duration-700 ${
-        scrolled
-          ? "bg-[hsl(var(--amber)/0.10)] backdrop-blur-2xl shadow-[0_8px_32px_-8px_hsl(var(--amber)/0.25)] border-b border-amber/30"
-          : "bg-[hsl(var(--amber)/0.07)] backdrop-blur-xl shadow-[0_4px_20px_-8px_hsl(var(--amber)/0.30)] border-b border-amber/20"
-      }`}
-    >
-      {/* Warm amber wash so navbar reads clearly over any hero imagery */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-amber/10 via-transparent to-amber/10 pointer-events-none" />
-      <div className="absolute inset-x-0 -bottom-4 h-4 bg-gradient-to-b from-background/40 to-transparent pointer-events-none" />
-      <div className="relative h-[2px] w-full bg-gradient-to-r from-amber via-rose to-violet" />
+    <header className="fixed top-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm">
+      <div className="w-full px-6 md:px-10 lg:px-16">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center h-20">
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex items-center justify-between h-18 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <img src="/logo.jpg" alt="BITS Hyderabad Logo" className="w-12 h-12 rounded-full" />
-              <div className="absolute -bottom-0.5 -right-2.0 w-3 h-3 rounded-full bg-teal border-2 border-background animate-pulse" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-foreground leading-tight">
-                BITS Hyderabad
-              </span>
-              <span className="text-[10px] font-body font-medium tracking-[0.15em] uppercase text-muted-foreground/70">
-                Student Welfare Division
-              </span>
+          {/* LEFT */}
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/logo.png" alt="BITS Hyderabad" className="w-10 h-10 object-contain mix-blend-multiply" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-gray-900">BITS Hyderabad</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-gray-500 mt-[2px]">Student Welfare Division</span>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav ref={dropdownRef} className="hidden lg:flex items-center gap-0.5 bg-secondary/50 rounded-2xl p-1.5 border border-border/30">
+          {/* CENTER NAV */}
+          <nav ref={dropdownRef} className="hidden lg:flex justify-center items-center gap-10">
             {navItems.map((item) => (
-              <div key={item.path} className="relative">
+              <div key={item.path} className="relative group">
                 <button
                   onMouseEnter={() => setOpenDropdown(item.path)}
                   onClick={() => setOpenDropdown(openDropdown === item.path ? null : item.path)}
-                  className={`relative px-3 py-2 rounded-xl text-[12px] font-body font-semibold transition-all duration-300 flex items-center gap-1 ${
-                    isActive(item.path) ? "text-foreground bg-card shadow-md border border-border/50" : "text-muted-foreground hover:text-foreground"
+                  className={`relative text-[14px] font-medium px-2 py-1 flex items-center gap-1 ${
+                    isActive(item.path) ? "text-gray-900" : "text-gray-700 hover:text-gray-900"
                   }`}
                 >
-                  {isActive(item.path) && (
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: `hsl(${item.color})` }} />
-                  )}
                   {item.label}
-                  {item.children && <ChevronDown className="w-3 h-3 opacity-50" />}
+                  {item.children && <ChevronDown className="w-3 h-3 opacity-70" />}
+                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
                 </button>
 
-                {/* Dropdown */}
                 <AnimatePresence>
                   {openDropdown === item.path && item.children && (
                     <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                      onMouseEnter={() => setOpenDropdown(item.path)}
-                      onMouseLeave={() => setOpenDropdown(null)}
-                      className="absolute top-full left-0 mt-2 w-64 bg-card/95 backdrop-blur-2xl border border-border/50 rounded-2xl shadow-2xl shadow-foreground/[0.08] overflow-hidden z-50"
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-xl shadow-xl z-50"
                     >
-                      <div className={`h-1 bg-gradient-to-r`} style={{ background: `linear-gradient(to right, hsl(${item.color}), hsl(${item.color} / 0.3))` }} />
                       <div className="p-2">
-                        <Link
-                          to={item.path}
-                          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-body font-semibold text-foreground hover:bg-secondary/60 transition-colors duration-200"
-                        >
-                          Overview
-                          <ChevronRight className="w-3 h-3 ml-auto opacity-40" />
-                        </Link>
-                        <div className="h-px bg-border/50 my-1" />
+                        <Link to={item.path} className="px-4 py-2.5 block text-sm font-semibold text-gray-900 hover:bg-gray-100 rounded-lg">Overview</Link>
+                        <div className="h-px bg-gray-200 my-1" />
                         {item.children.map((child) => (
                           <Link
                             key={child.path}
                             to={child.path}
-                            className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-body text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors duration-200"
+                            onClick={() => setOpenDropdown(null)}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
                           >
                             {child.label}
-                            <ChevronRight className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-40" />
                           </Link>
                         ))}
                       </div>
@@ -236,104 +198,18 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right side */}
-          <div className="hidden lg:flex items-center gap-2">
-            <button className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-all duration-300">
-              <Search className="w-4 h-4" />
-            </button>
-            <Link
-              to="/help"
-              className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl gradient-accent text-white text-[13px] font-body font-semibold shadow-lg shadow-amber/20 hover:shadow-xl hover:shadow-amber/30 hover:scale-105 transition-all duration-300"
-            >
+          {/* RIGHT */}
+          <div className="flex items-center gap-4 justify-end">
+            <button className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"><Search className="w-4 h-4" /></button>
+
+            <Link to="/help" className="flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:scale-[1.03] transition-all duration-300">
               Get Help
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden p-2.5 rounded-xl hover:bg-secondary/80 transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="w-5 h-5 text-foreground" /> : <Menu className="w-5 h-5 text-foreground" />}
-          </button>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden overflow-hidden"
-          >
-            <nav className="px-6 py-5 space-y-1 bg-background/95 backdrop-blur-2xl border-t border-border/30 max-h-[75vh] overflow-y-auto">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.path}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.03, duration: 0.3 }}
-                >
-                  <div
-                    onClick={() => setMobileExpanded(mobileExpanded === item.path ? null : item.path)}
-                    className={`flex items-center gap-3 py-3 px-4 rounded-xl text-sm font-body font-semibold transition-all duration-300 cursor-pointer ${
-                      isActive(item.path)
-                        ? "text-foreground bg-card shadow-sm border border-border/50"
-                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-                    }`}
-                  >
-                    <span className="w-2 h-2 rounded-full shrink-0" style={{ background: `hsl(${item.color})` }} />
-                    {item.label}
-                    {item.children && (
-                      <ChevronDown className={`w-3.5 h-3.5 ml-auto transition-transform duration-300 ${mobileExpanded === item.path ? "rotate-180" : ""}`} />
-                    )}
-                  </div>
-                  <AnimatePresence>
-                    {mobileExpanded === item.path && item.children && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pl-9 pr-4 py-1 space-y-0.5">
-                          <Link to={item.path} className="block py-2 px-3 rounded-lg text-[13px] font-body font-semibold text-foreground hover:bg-secondary/60 transition-colors">
-                            Overview
-                          </Link>
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.path}
-                              to={child.path}
-                              className="block py-2 px-3 rounded-lg text-[13px] font-body text-muted-foreground hover:text-foreground hover:bg-secondary/60 transition-colors"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-              <div className="pt-3 mt-3 border-t border-border/30">
-                <Link
-                  to="/help"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3.5 rounded-xl gradient-accent text-white text-sm font-body font-semibold shadow-lg shadow-amber/20"
-                >
-                  Get Help Now
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 };
