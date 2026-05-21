@@ -22,12 +22,12 @@ const VideoSpotlight = ({ video }: VideoSpotlightProps) => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="glass-card p-6 md:p-8"
     >
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between mb-5">
         <span className="uni-label inline-flex items-center gap-2">
           <Film className="w-3.5 h-3.5 text-accent" />
           Watch
         </span>
-        <span className="font-display text-sm md:text-base text-foreground/80">{video.title}</span>
+        <span className="font-display text-sm md:text-base text-foreground/80 sm:text-right">{video.title}</span>
       </div>
 
       <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-foreground/5">

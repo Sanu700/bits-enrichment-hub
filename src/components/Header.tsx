@@ -21,11 +21,11 @@ const navItems: NavItem[] = [
     path: "/acads",
     color: "var(--amber)",
     children: [
-      { label: "Programs (UG, PG, WILP, PhD)", path: "/acads#programs" },
-      { label: "Academic Calendar", path: "/acads#academic-calendar" },
-      { label: "Branches & Programs", path: "/acads#branches-programs" },
-      { label: "Academic Buildings", path: "/acads#academic-buildings" },
-      { label: "PS, Placements & Internships", path: "/acads#ps-placements" },
+      { label: "Programs (UG, PG, WILP, PhD)", path: "/acads/programs" },
+      { label: "Academic Calendar", path: "/acads/academic-calendar" },
+      { label: "Branches & Programs", path: "/acads/branches-programs" },
+      { label: "Academic Buildings", path: "/acads/academic-buildings" },
+      { label: "PS, Placements & Internships", path: "/acads/ps-placements" },
     ],
   },
   {
@@ -33,11 +33,11 @@ const navItems: NavItem[] = [
     path: "/admissions",
     color: "var(--emerald)",
     children: [
-      { label: "Admission Process", path: "/admissions#admission-process" },
-      { label: "Scholarships", path: "/admissions#scholarships" },
-      { label: "Loans & Financial Aid", path: "/admissions#loans" },
-      { label: "Policies", path: "/admissions#policies" },
-      { label: "Welcome Guide", path: "/admissions#welcome-guide" },
+      { label: "Admission Process", path: "/admissions/admission-process" },
+      { label: "Scholarships", path: "/admissions/scholarships" },
+      { label: "Loans & Financial Aid", path: "/admissions/loans" },
+      { label: "Policies", path: "/admissions/policies" },
+      { label: "Welcome Guide", path: "/admissions/welcome-guide" },
     ],
   },
   {
@@ -45,12 +45,12 @@ const navItems: NavItem[] = [
     path: "/campus-life",
     color: "var(--teal)",
     children: [
-      { label: "Clubs", path: "/campus-life#clubs" },
-      { label: "Hostels & Mess", path: "/campus-life#hostels" },
-      { label: "Campus Places", path: "/campus-life#campus-places" },
-      { label: "Student Union", path: "/campus-life#student-union" },
-      { label: "Fests", path: "/campus-life#fests" },
-      { label: "Virtual Tour", path: "/campus-life#virtual-tour" },
+      { label: "Clubs", path: "/campus-life/clubs" },
+      { label: "Hostels & Mess", path: "/campus-life/hostels" },
+      { label: "Campus Places", path: "/campus-life/campus-places" },
+      { label: "Student Union", path: "/campus-life/student-union" },
+      { label: "Fests", path: "/campus-life/fests" },
+      { label: "Virtual Tour", path: "/campus-life/virtual-tour" },
     ],
   },
   {
@@ -58,12 +58,12 @@ const navItems: NavItem[] = [
     path: "/parents",
     color: "var(--violet)",
     children: [
-      { label: "Stay", path: "/parents#stay" },
-      { label: "Safety", path: "/parents#safety" },
-      { label: "Parcels", path: "/parents#parcels" },
-      { label: "Transport", path: "/parents#transport" },
-      { label: "Communication", path: "/parents#communication" },
-      { label: "Anti-Ragging", path: "/parents#anti-ragging" },
+      { label: "Stay", path: "/parents/stay" },
+      { label: "Safety", path: "/parents/safety" },
+      { label: "Parcels", path: "/parents/parcels" },
+      { label: "Transport", path: "/parents/transport" },
+      { label: "Communication", path: "/parents/communication" },
+      { label: "Anti-Ragging", path: "/parents/anti-ragging" },
     ],
   },
   {
@@ -71,10 +71,10 @@ const navItems: NavItem[] = [
     path: "/research",
     color: "var(--rose)",
     children: [
-      { label: "Labs", path: "/research#labs" },
-      { label: "Journals", path: "/research#journals" },
-      { label: "Recent Innovations", path: "/research#innovations" },
-      { label: "Achievements", path: "/research#achievements" },
+      { label: "Labs", path: "/research/labs" },
+      { label: "Journals", path: "/research/journals" },
+      { label: "Recent Innovations", path: "/research/innovations" },
+      { label: "Achievements", path: "/research/achievements" },
     ],
   },
   {
@@ -82,10 +82,10 @@ const navItems: NavItem[] = [
     path: "/health",
     color: "var(--sky)",
     children: [
-      { label: "Medical Center", path: "/health#medical-center" },
-      { label: "MPower (Mental Health)", path: "/health#mpower" },
-      { label: "Ambulance", path: "/health#ambulance" },
-      { label: "Helplines", path: "/health#helplines" },
+      { label: "Medical Center", path: "/health/medical-center" },
+      { label: "MPower (Mental Health)", path: "/health/mpower" },
+      { label: "Ambulance", path: "/health/ambulance" },
+      { label: "Helplines", path: "/health/helplines" },
     ],
   },
   {
@@ -93,10 +93,10 @@ const navItems: NavItem[] = [
     path: "/alumni",
     color: "var(--amber-light)",
     children: [
-      { label: "BITSAA", path: "/alumni#bitsaa" },
-      { label: "SARC", path: "/alumni#sarc" },
-      { label: "Achievements", path: "/alumni#achievements" },
-      { label: "BGM", path: "/alumni#bgm" },
+      { label: "BITSAA", path: "/alumni/bitsaa" },
+      { label: "SARC", path: "/alumni/sarc" },
+      { label: "Achievements", path: "/alumni/achievements" },
+      { label: "BGM", path: "/alumni/bgm" },
     ],
   },
   {
@@ -104,12 +104,12 @@ const navItems: NavItem[] = [
     path: "/help",
     color: "var(--teal-light)",
     children: [
-      { label: "AUGSD", path: "/help#augsd" },
-      { label: "SWD", path: "/help#swd" },
-      { label: "AGSRD", path: "/help#agsrd" },
-      { label: "Admin Office", path: "/help#admin-office" },
-      { label: "SWMC", path: "/help#swmc" },
-      { label: "POSH", path: "/help#posh" },
+      { label: "AUGSD", path: "/help/augsd" },
+      { label: "SWD", path: "/help/swd" },
+      { label: "AGSRD", path: "/help/agsrd" },
+      { label: "Admin Office", path: "/help/admin-office" },
+      { label: "SWMC", path: "/help/swmc" },
+      { label: "POSH", path: "/help/posh" },
     ],
   },
 ];
@@ -137,24 +137,43 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname, location.hash]);
 
-  const isActive = (path: string) => location.pathname === path;
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(`${path}/`);
+  const isChildActive = (path: string) => {
+    const [pathname, hash] = path.split("#");
+    return location.pathname === pathname && (!hash || location.hash === `#${hash}`);
+  };
+  const scrollCurrentHash = (path: string) => {
+    const [pathname, hash] = path.split("#");
+    if (hash && pathname === location.pathname && `#${hash}` === location.hash) {
+      window.setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 0);
+    }
+  };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="w-full px-6 md:px-10 lg:px-16">
+    <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200 shadow-sm">
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16">
         <div className="grid grid-cols-[auto_1fr_auto] items-center h-20">
 
           {/* LEFT */}
           <Link to="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="BITS Hyderabad" className="w-10 h-10 object-contain mix-blend-multiply" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-gray-900">BITS Hyderabad</span>
-              <span className="text-[10px] uppercase tracking-[0.18em] text-gray-500 mt-[2px]">Student Welfare Division</span>
+            <div className="flex min-w-0 flex-col leading-tight">
+              <span className="text-base sm:text-lg font-bold text-gray-900 truncate">BITS Hyderabad</span>
+              <span className="hidden min-[390px]:block text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.18em] text-gray-500 mt-[2px] truncate">Student Welfare Division</span>
             </div>
           </Link>
 
           {/* CENTER NAV */}
-          <nav ref={dropdownRef} className="hidden lg:flex justify-center items-center gap-10">
+          <nav ref={dropdownRef} className="hidden xl:flex justify-center items-center gap-5 2xl:gap-8">
             {navItems.map((item) => (
               <div key={item.path} className="relative group">
                 <button
@@ -184,8 +203,15 @@ const Header = () => {
                           <Link
                             key={child.path}
                             to={child.path}
-                            onClick={() => setOpenDropdown(null)}
-                            className="block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
+                            onClick={() => {
+                              setOpenDropdown(null);
+                              scrollCurrentHash(child.path);
+                            }}
+                            className={`block px-4 py-2 text-sm rounded-lg ${
+                              isChildActive(child.path)
+                                ? "bg-orange-50 text-orange-700"
+                                : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                            }`}
                           >
                             {child.label}
                           </Link>
@@ -209,7 +235,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setMobileOpen((open) => !open)}
-              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              className="xl:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
@@ -225,9 +251,9 @@ const Header = () => {
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              className="lg:hidden pb-5"
+              className="xl:hidden fixed inset-x-3 top-20 z-50"
             >
-              <div className="rounded-2xl border border-gray-200 bg-white shadow-xl p-2 max-h-[calc(100svh-6rem)] overflow-y-auto">
+              <div className="rounded-2xl border border-white/60 bg-white/90 backdrop-blur-2xl shadow-2xl p-2 max-h-[calc(100svh-6rem)] overflow-y-auto overscroll-contain">
                 {navItems.map((item) => (
                   <div key={item.path}>
                     <button
@@ -246,14 +272,30 @@ const Header = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <Link to={item.path} className="block rounded-lg px-6 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          <Link
+                            to={item.path}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              setMobileExpanded(null);
+                            }}
+                            className="block rounded-lg px-6 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
                             Overview
                           </Link>
                           {item.children.map((child) => (
                             <Link
                               key={child.path}
                               to={child.path}
-                              className="block rounded-lg px-6 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                              onClick={() => {
+                                setMobileOpen(false);
+                                setMobileExpanded(null);
+                                scrollCurrentHash(child.path);
+                              }}
+                              className={`block rounded-lg px-6 py-2 text-sm ${
+                                isChildActive(child.path)
+                                  ? "bg-orange-50 text-orange-700"
+                                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                              }`}
                             >
                               {child.label}
                             </Link>

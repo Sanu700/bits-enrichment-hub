@@ -1,12 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/SectionHeader";
 import SectionCard from "@/components/SectionCard";
-import QuickLinks from "@/components/QuickLinks";
 import CTAButton from "@/components/CTAButton";
 
 interface ContentItem {
@@ -56,15 +55,12 @@ const ContentPage = ({
     }
 
     const targetId = decodeURIComponent(location.hash.slice(1));
-    const matchingItem = items.find((item) => item.slug === targetId);
-
     const id = window.setTimeout(() => {
       window.requestAnimationFrame(() => {
         document.getElementById(targetId)?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-        if (matchingItem) setSelectedItem(matchingItem);
       });
     }, 120);
 
@@ -85,33 +81,13 @@ const ContentPage = ({
       />
 
       <section id="explore" className="uni-section scroll-mt-24">
-        <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-          <QuickLinks
-            title={`Quick Jump`}
-            items={items.map((item) => ({
-              label: item.title,
-              active: item.slug ? location.hash === `#${item.slug}` : false,
-              onClick: () => {
-                if (!item.slug) {
-                  setSelectedItem(item);
-                  return;
-                }
-
-                setSelectedItem(item);
-                document.getElementById(item.slug)?.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-                navigate(`${basePath}#${item.slug}`);
-              },
-            }))}
-          />
+        <div>
           <motion.div
             variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5"
           >
             {items.map((item, i) => (
               <motion.div

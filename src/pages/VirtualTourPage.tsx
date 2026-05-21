@@ -1,20 +1,27 @@
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, Compass, Play, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, Compass, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
+import VideoSpotlight from "@/components/VideoSpotlight";
 import { Button } from "@/components/ui/button";
 import { getItem, getSection } from "@/data/sections";
 import { officialMedia } from "@/data/media";
 
 // External virtual tour URL — single source of truth
 const TOUR_URL = "https://bits-hyderabad.ac.in/bphcvirtualtour/index.htm";
+const campusTourVideo = {
+  url: "https://www.youtube.com/embed/1RORMaQIgv4?start=1",
+  title: "BITS Hyderabad Campus Tour",
+  caption: "A campus tour walkthrough for prospective students and families.",
+  poster: "https://img.youtube.com/vi/1RORMaQIgv4/maxresdefault.jpg",
+};
 
 const areas = [
-  { title: "Academic Block", subtitle: "Lecture halls & labs", img: officialMedia.campusInfrastructure },
-  { title: "Hostels", subtitle: "Residential life", img: officialMedia.hostel },
-  { title: "Library", subtitle: "Study & archives", img: officialMedia.library },
-  { title: "Sports Facilities", subtitle: "Fields & courts", img: officialMedia.sports },
-  { title: "Campus Life", subtitle: "Plazas & greens", img: officialMedia.studentFacilities },
+  { title: "Academic Block", subtitle: "Lecture halls & labs", img: officialMedia.uploadedClassroom },
+  { title: "Hostels", subtitle: "Residential life", img: officialMedia.uploadedBoysHostel },
+  { title: "Library", subtitle: "Study & archives", img: officialMedia.uploadedLibrary },
+  { title: "Sports Facilities", subtitle: "Fields & courts", img: officialMedia.uploadedBasketballCourt },
+  { title: "Campus Life", subtitle: "Plazas & greens", img: officialMedia.uploadedRockGarden },
 ];
 
 // Hotspots positioned over the immersive hero card (percentages)
@@ -96,7 +103,7 @@ const VirtualTourPage = () => {
                 <img
                   src={officialMedia.virtualTourFrame}
                   alt="BITS Hyderabad campus aerial preview"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-foreground/10" />
                 <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--amber))/0.2] via-transparent to-[hsl(var(--violet))/0.25] mix-blend-overlay" />
@@ -129,6 +136,8 @@ const VirtualTourPage = () => {
                 </div>
               </motion.div>
             </div>
+
+            <VideoSpotlight video={campusTourVideo} />
 
             {/* Interactive grid of campus areas */}
             <div>
@@ -204,9 +213,9 @@ const VirtualTourPage = () => {
               <Button
                 variant="outline"
                 onClick={() => navigate(section.basePath)}
-                className="font-body rounded-full px-8 text-sm"
+                className="font-body rounded-full px-8 text-sm lg:hidden"
               >
-                Explore more in {section.title}
+                Back to {section.title}
               </Button>
             </div>
           </div>

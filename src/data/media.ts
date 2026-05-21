@@ -26,6 +26,7 @@ export const officialMedia = {
   uploadedBoysHostel: bphcBoysHostel,
   uploadedBasketballCourt: bphcBbCourt,
   uploadedLibrary: bphcLibrary,
+  virtualTourFrame: bphcInfrastructure,
   campusInfrastructure: `${bitsUploads}/campus-infrastructure-1.jpg`,
   campusInfrastructureAlt: `${bitsUploads}/campus-infrastructure-3.jpg`,
   lawns: `${bitsUploads}/lawns-1.jpg`,

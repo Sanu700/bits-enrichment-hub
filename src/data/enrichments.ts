@@ -224,6 +224,12 @@ export const enrichments: Record<string, Enrichment> = {
         description: "Register for courses, view timetable and grades.",
         icon: "external",
       },
+      {
+        label: "Campus101 Hyderabad",
+        url: "https://campus101.vercel.app/hyderabad/home",
+        description: "Student-made campus guide for quick fresher references.",
+        icon: "external",
+      },
     ],
   },
 
@@ -250,6 +256,14 @@ export const enrichments: Record<string, Enrichment> = {
       { src: officialMedia.uploadedCp, caption: "Connaught Place" },
       { src: officialMedia.uploadedRockGarden, caption: "Green campus spaces" },
       { src: officialMedia.uploadedCampusNight, caption: "Campus infrastructure" },
+    ],
+    resources: [
+      {
+        label: "Campus101 Hyderabad",
+        url: "https://campus101.vercel.app/hyderabad/home",
+        description: "Student utility platform for campus places, fresher references and quick campus info.",
+        icon: "external",
+      },
     ],
   },
 

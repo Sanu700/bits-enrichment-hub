@@ -18,11 +18,11 @@ const StatsGrid = ({ stats, title = "Highlights" }: StatsGridProps) => {
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {stats.map((stat) => (
-          <div key={stat} className="flex gap-3 rounded-3xl border border-white/10 bg-card/80 p-4">
-            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-amber to-rose text-white shadow-lg shadow-amber/20">
+          <div key={stat} className="flex min-w-0 gap-3 rounded-2xl sm:rounded-3xl border border-white/10 bg-card/80 p-4">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber to-rose text-white shadow-lg shadow-amber/20">
               <CheckCircle2 className="w-5 h-5" />
             </span>
-            <span className="font-body text-sm text-foreground/90 leading-relaxed">{stat}</span>
+            <span className="min-w-0 font-body text-sm text-foreground/90 leading-relaxed">{stat}</span>
           </div>
         ))}
       </div>

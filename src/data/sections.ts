@@ -206,7 +206,7 @@ Career pathways include software, data science, consulting, core engineering, he
         slug: "fests",
         title: "Fests",
         description: "Annual cultural, technical, sports and innovation festivals that define student energy.",
-        detail: "BITS Hyderabad hosts a tiered fest ecosystem with five flagship experiences. PEARL showcases music, arts and student culture. ATMOS blends technology, design and creative expression. ARENA brings campus sports to a competitive stage. Launchpad celebrates startups, product launches and entreprenurial energy. Verba Maximus spotlights debates, literature and public speaking.",
+        detail: "BITS Hyderabad hosts a tiered fest ecosystem with five flagship experiences. PEARL showcases music, arts and student culture. ATMOS blends technology, design and creative expression. ARENA brings campus sports to a competitive stage. Launchpad celebrates startups, product launches and entrepreneurial energy. Verba Maximus spotlights debates, literature and public speaking.",
         features: ["PEARL · cultural flagship", "ATMOS · tech & design", "ARENA · sports showcase", "Launchpad · startup sprint", "Verba Maximus · literary forum"],
         subItems: [
           {

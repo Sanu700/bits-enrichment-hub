@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Phone, ExternalLink, Sparkles } from "lucide-react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Phone, ExternalLink, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
@@ -20,11 +21,36 @@ interface DetailPageProps {
   sectionKey: string;
 }
 
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 const DetailPage = ({ sectionKey }: DetailPageProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { slug = "" } = useParams();
   const section = getSection(sectionKey);
   const item = getItem(sectionKey, slug);
+  const [openSubItem, setOpenSubItem] = useState<string | undefined>();
+
+  useEffect(() => {
+    if (!item?.subItems?.length || !location.hash) return;
+
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    const targetIndex = item.subItems.findIndex((sub) => slugify(sub.title) === targetId);
+    if (targetIndex === -1) return;
+
+    setOpenSubItem(`sub-${targetIndex}`);
+    const id = window.setTimeout(() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 180);
+
+    return () => window.clearTimeout(id);
+  }, [item, location.hash]);
 
   if (!section || !item) {
     return (
@@ -155,12 +181,21 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
                   Inside {item.title}
                 </h3>
 
-                <Accordion type="single" collapsible className="mt-6 w-full">
-                  {item.subItems.map((sub, idx) => (
+                <Accordion
+                  type="single"
+                  collapsible
+                  value={openSubItem}
+                  onValueChange={setOpenSubItem}
+                  className="mt-6 w-full"
+                >
+                  {item.subItems.map((sub, idx) => {
+                    const subId = slugify(sub.title);
+                    return (
                     <AccordionItem
                       key={sub.title}
+                      id={subId}
                       value={`sub-${idx}`}
-                      className="border-b border-border/50 last:border-b-0"
+                      className="scroll-mt-28 border-b border-border/50 last:border-b-0"
                     >
                       <AccordionTrigger className="hover:no-underline py-5 group">
                         <div className="flex items-center gap-4 text-left">
@@ -179,8 +214,8 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
                           </div>
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="pl-13">
-                        <div className="pl-13 space-y-4">
+                      <AccordionContent>
+                        <div className="space-y-4 sm:pl-14">
                           <p className="font-body text-sm text-foreground/80 leading-relaxed">
                             {sub.description}
                           </p>
@@ -210,7 +245,8 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
                         </div>
                       </AccordionContent>
                     </AccordionItem>
-                  ))}
+                    );
+                  })}
                 </Accordion>
               </motion.div>
             )}
@@ -253,9 +289,9 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
               <Button
                 variant="outline"
                 onClick={() => navigate(section.basePath)}
-                className="font-body rounded-full px-8 text-sm"
+                className="font-body rounded-full px-8 text-sm lg:hidden"
               >
-                Explore more in {section.title}
+                Back to {section.title}
               </Button>
             </motion.div>
           </div>
@@ -271,26 +307,6 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
                 }))}
               />
 
-              <div className="glass-card p-6">
-                <span className="uni-label">Next step</span>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                  Move between adjacent sections, revisit the campus overview, or access support anytime.
-                </p>
-                <div className="mt-6 flex flex-col gap-3">
-                  <CTAButton
-                    onClick={() => navigate(section.basePath)}
-                    label={`Back to ${section.title}`}
-                    className="w-full text-sm"
-                  />
-                  <Button
-                    variant="outline"
-                    onClick={() => navigate("/help")}
-                    className="w-full rounded-2xl text-sm"
-                  >
-                    Need immediate help
-                  </Button>
-                </div>
-              </div>
             </div>
           </aside>
         </div>

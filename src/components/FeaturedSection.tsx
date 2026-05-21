@@ -43,7 +43,7 @@ const FeaturedSection = () => {
               <img
                 src={heroLibrary}
                 alt="BITS Hyderabad library"
-                className="w-full h-[320px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                className="w-full h-[320px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.04]"
                 loading="lazy"
                 width={1920}
                 height={800}

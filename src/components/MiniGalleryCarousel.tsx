@@ -39,18 +39,28 @@ const MiniGalleryCarousel = ({
       className="relative"
     >
       {/* HEADER */}
-      <div className="flex justify-between items-center mb-4">
-        <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+      <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
+        <span className="inline-flex min-w-0 items-center gap-2 text-sm text-muted-foreground">
           <Camera className="w-4 h-4 text-orange-500" />
-          {label}
+          <span className="truncate">{label}</span>
         </span>
 
         <div className="flex gap-2">
-          <button onClick={() => emblaApi?.scrollPrev()} className="btn-circle">
-            <ChevronLeft />
+          <button
+            type="button"
+            onClick={() => emblaApi?.scrollPrev()}
+            className="grid h-9 w-9 place-items-center rounded-full border border-border/60 bg-card/80 text-foreground shadow-sm hover:bg-card"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-4 w-4" />
           </button>
-          <button onClick={() => emblaApi?.scrollNext()} className="btn-circle">
-            <ChevronRight />
+          <button
+            type="button"
+            onClick={() => emblaApi?.scrollNext()}
+            className="grid h-9 w-9 place-items-center rounded-full border border-border/60 bg-card/80 text-foreground shadow-sm hover:bg-card"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -73,7 +83,7 @@ const MiniGalleryCarousel = ({
                     loading="lazy"
                     width={1280}
                     height={800}
-                    className={`w-full h-full object-cover ${focus} transition duration-[1200ms] ease-out group-hover:scale-[1.03] brightness-[0.82] contrast-[1.12] saturate-[0.92] [filter:sepia(0.16)_hue-rotate(-6deg)]`}
+                    className={`w-full h-full object-cover ${focus} transition duration-1000 ease-out group-hover:scale-[1.03] brightness-[0.82] contrast-[1.12] saturate-[0.92] [filter:sepia(0.16)_hue-rotate(-6deg)]`}
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.7),rgba(0,0,0,0.3),transparent)]" />
                   <div className="absolute inset-0 bg-[hsl(var(--amber)/0.06)] mix-blend-overlay pointer-events-none" />

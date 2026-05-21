@@ -54,7 +54,7 @@ const CinematicImage = ({
         alt={alt}
         loading={loading}
         className={cn(
-          "w-full h-full object-cover transition-transform duration-[1400ms] ease-out",
+          "w-full h-full object-cover transition-transform duration-1000 ease-out",
           !noZoom && "group-hover:scale-[1.04]",
         )}
         style={{
