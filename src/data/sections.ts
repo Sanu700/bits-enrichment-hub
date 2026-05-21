@@ -104,8 +104,8 @@ Career pathways include software, data science, consulting, core engineering, he
         slug: "academic-buildings",
         title: "Academic Buildings",
         description: "New Acads, Old Acads, Library, Auditorium, and Campus Kitchen.",
-        detail: "New Academic Block houses modern classrooms and labs with smart-board technology. Old Academic Block features traditional lecture halls and department offices. Central Library with 500,000+ volumes and digital access. Auditorium seats 2,000 for convocations and events. Campus Kitchen serves the academic community.",
-        features: ["New Academic Block", "Old Academic Block", "Central Library (500k+ volumes)", "2,000-seat Auditorium", "Campus Kitchen"],
+        detail: "Academic spaces at BITS Hyderabad include classrooms, lecture halls, laboratories, library facilities, department spaces and the campus auditorium used for major events. These facilities support regular classes, exams, workshops, seminars and student activities.",
+        features: ["Classrooms and lecture halls", "Laboratories", "Central Library", "Auditorium", "Department spaces"],
       },
       {
         slug: "ps-placements",
@@ -138,15 +138,15 @@ Career pathways include software, data science, consulting, core engineering, he
         slug: "scholarships",
         title: "Scholarships & Financial Aid",
         description: "Merit, Merit-Cum-Need and Student Aid Fund support — managed by the SWD.",
-        detail: "BITS Pilani ensures that merit is rewarded and financial need is supported through multiple aid programs.\n\nMerit Scholarship — awarded based on high academic rank and CGPA.\n\nMerit-Cum-Need (MCN) — for students with an annual parental income below ₹15 LPA (2024-25 limit).\n\nStudent Aid Fund (SAF) — an annual scholarship for students requiring specific financial assistance.\n\nAll scholarships are administered through the SWD scholarship portal.",
+        detail: "BITS Pilani supports eligible students through merit-based and need-aware aid programs.\n\nMerit Scholarship - awarded based on academic performance and applicable institute criteria.\n\nMerit-Cum-Need (MCN) - financial support based on family income documentation and academic requirements published for the current cycle.\n\nStudent Aid Fund (SAF) - additional support for students requiring specific financial assistance.\n\nStudents should verify current eligibility, deadlines and documents through the SWD scholarship portal.",
         features: ["Merit Scholarship", "Merit-Cum-Need (MCN)", "Student Aid Fund (SAF)", "SWD scholarship portal"],
       },
       {
         slug: "loans",
         title: "Loans & Financial Aid",
         description: "Education loans, fee waivers, and financial assistance programs.",
-        detail: "Tie-ups with major banks for education loans at competitive rates. Fee waiver programs for economically disadvantaged students. Installment payment options available. Financial counseling services to help families plan education expenses.",
-        features: ["Bank education loans", "Fee waiver programs", "Installment payment plans", "Financial counseling"],
+        detail: "Families planning education loans should confirm current bank options, required documents and sanction timelines directly with banks and official campus/SWD notices. Students seeking financial support should track scholarship, MCN and aid announcements through the SWD portal.",
+        features: ["Bank education loans", "SWD aid notices", "Document planning", "Scholarship timelines"],
       },
       {
         slug: "policies",
@@ -208,53 +208,36 @@ Career pathways include software, data science, consulting, core engineering, he
         description: "Annual cultural, technical, sports and innovation festivals that define student energy.",
         detail: "BITS Hyderabad hosts a tiered fest ecosystem with five flagship experiences. PEARL showcases music, arts and student culture. ATMOS blends technology, design and creative expression. ARENA brings campus sports to a competitive stage. Launchpad celebrates startups, product launches and entreprenurial energy. Verba Maximus spotlights debates, literature and public speaking.",
         features: ["PEARL · cultural flagship", "ATMOS · tech & design", "ARENA · sports showcase", "Launchpad · startup sprint", "Verba Maximus · literary forum"],
-      },
-      {
-        slug: "pearl",
-        title: "PEARL — Cultural Festival",
-        description: "A premium stage for music, dance, art and creative expression.",
-        detail: `PEARL is the cultural flagship for BITS Hyderabad — a three-day celebration of performing arts, music, dance, drama and live showcases.
-
-Highlights include pro-nights, battle of bands, classical performances, film screenings and art installations.
-
-The festival brings together regional associations, student clubs and international performers for a polished campus experience.`,
-        features: ["Pro-nights & live concerts", "Dance battles & theatre", "Photography & fine arts", "Regional cultural showcases"],
-      },
-      {
-        slug: "atmos",
-        title: "ATMOS — Tech & Creative Fest",
-        description: "Where innovation, design and immersive experiences collide.",
-        detail: `ATMOS blends technology and artistic innovation through workshops, product exhibitions and interactive installations.
-
-Participants experience hackathons, ideathons, design labs, AR/VR showcases, app demos and speaker sessions from industry leaders.`,
-        features: ["Hackathons & ideathons", "Design thinking labs", "AR/VR showcases", "Industry speaker sessions"],
-      },
-      {
-        slug: "arena",
-        title: "ARENA — Sports Festival",
-        description: "Competitive athletics, team sport leagues and campus-wide fitness culture.",
-        detail: `ARENA is the sports fest where varsity leagues, open tournaments and athletic challenges converge.
-
-Cricket, football, basketball, volleyball, athletics and esports competitions run alongside wellness activities and campus sports showcases.`,
-        features: ["Varsity & open tournaments", "Multi-sport leagues", "Athletics & crossfit", "Sports leadership programs"],
-      },
-      {
-        slug: "launchpad",
-        title: "Launchpad — Startup & Innovation",
-        description: "A launchpad for student startups, prototypes, and investor readiness.",
-        detail: `Launchpad brings together young founders, mentors and investors for a weekend of product pitches, incubation clinics and startup showcases.
-
-Teams present MVPs, receive mentorship, and connect with corporate partners and accelerator networks.`,
-        features: ["Startup pitch arena", "Investor mentorship", "Prototype showcase", "Incubation support"],
-      },
-      {
-        slug: "verba-maximus",
-        title: "Verba Maximus — Literary Festival",
-        description: "A high-impact forum for debates, quizzes, writing and public speaking.",
-        detail: `Verba Maximus celebrates the power of words with debates, literary battles, quiz championships and storytelling performances.
-
-Leaders in rhetoric, policymaking and media convene to create a polished platform for student expression.`,
-        features: ["Debate & policy forums", "Quiz leagues", "Creative writing workshops", "Storytelling showcases"],
+        subItems: [
+          {
+            title: "PEARL",
+            tagline: "Cultural festival",
+            description: "PEARL is the cultural flagship for BITS Hyderabad, bringing music, dance, drama, fine arts and live showcases together on the campus stage.",
+            videoUrl: "https://www.youtube.com/embed/yT-3eMlnzpU",
+          },
+          {
+            title: "ATMOS",
+            tagline: "Technical festival",
+            description: "ATMOS blends technology, design and creative experimentation through workshops, exhibitions, hackathons, speaker sessions and student-built experiences.",
+            videoUrl: "https://www.youtube.com/embed/PZwfHQ4p6hQ",
+          },
+          {
+            title: "ARENA",
+            tagline: "Sports festival",
+            description: "ARENA brings varsity leagues, open tournaments and campus sports culture into a competitive multi-sport showcase.",
+            videoUrl: "https://www.youtube.com/embed/JIWNk4zqAfI",
+          },
+          {
+            title: "Launchpad",
+            tagline: "Startup & innovation",
+            description: "Launchpad gives student founders a focused platform for startup pitches, prototype showcases, mentor feedback and incubation conversations.",
+          },
+          {
+            title: "Verba Maximus",
+            tagline: "Literary festival",
+            description: "Verba Maximus spotlights debates, quizzes, writing, storytelling and public speaking for students who build with words and ideas.",
+          },
+        ],
       },
       {
         slug: "virtual-tour",
@@ -278,37 +261,37 @@ Leaders in rhetoric, policymaking and media convene to create a polished platfor
       {
         slug: "stay",
         title: "Stay",
-        description: "Nearby hotels, and accommodation for visiting families.",
-        detail: " List of verified nearby hotels and homestays. Booking assistance available through the administration office. Advance reservation recommended during fest seasons and convocation.",
-        features: ["Verified nearby hotels", "Homestays", "Booking assistance"],
+        description: "Nearby hotels and accommodation options for visiting families.",
+        detail: "Families visiting BITS Hyderabad usually stay in nearby hotels or serviced apartments around Shamirpet, Medchal and Kompally. Advance booking is recommended during admissions, fest weekends and convocation periods. Visitors should confirm campus entry requirements with the student or relevant campus office before travel.",
+        features: ["Nearby hotels", "Serviced apartments", "Plan ahead for busy weekends"],
       },
       {
         slug: "safety",
         title: "Safety",
         description: "Campus security measures, emergency contacts, and protocols.",
-        detail: "24/7 security with CCTV surveillance across campus. Emergency response team on standby. Fire safety equipment in all buildings. Regular safety drills and awareness programs. Student safety app with panic button and GPS tracking. Well-lit pathways and escort services at night.",
-        features: ["24/7 CCTV surveillance", "Emergency response team", "Safety app + panic button", "Night escort services"],
+        detail: "The residential campus is supported by campus security, controlled entry points, hostel wardens, emergency response contacts and medical support. Students should keep important campus helpline numbers saved and route urgent concerns through security, SWD, wardens or the medical centre as appropriate.",
+        features: ["Campus security", "Controlled entry points", "Hostel wardens", "Emergency contacts"],
       },
       {
         slug: "parcels",
         title: "Parcels",
         description: "How to send and receive parcels and packages on campus.",
-        detail: "Dedicated parcel collection center at the post office. Courier services (BlueDart, DTDC, Delhivery) deliver to campus gate. Students notified via email/SMS upon arrival. Tips for packaging and addressing parcels correctly. Locker system for secure pickup.",
-        features: ["Parcel collection center", "Major courier partners", "Email/SMS notifications", "Secure pickup lockers"],
+        detail: "Courier and parcel handling may vary by courier partner and campus process. Families should use the student's full name, ID number, hostel and phone number on parcels, and students should track shipments directly with the courier service or campus receiving point when applicable.",
+        features: ["Use student ID details", "Add hostel and phone number", "Track with courier partner"],
       },
       {
         slug: "transport",
         title: "Transport",
         description: "Getting to campus, local transport, and travel information.",
-        detail: "Nearest airport and railway station details with distance and travel time. University shuttle from station during admission season. Auto-rickshaw and cab services available. Local bus routes connecting campus to city. Bicycle sharing program on campus.",
-        features: ["Airport & rail info", "University shuttle", "Local cabs & autos", "Bicycle sharing"],
+        detail: "BITS Hyderabad is in Jawahar Nagar, near Shamirpet. Families commonly travel from Hyderabad airport, Secunderabad railway station or city bus points by app cab, taxi or private vehicle. Travel time depends heavily on city traffic, so admission-day and event-day journeys should be planned with buffer time.",
+        features: ["Airport & rail connectivity", "App cabs and taxis", "Traffic buffer recommended"],
       },
       {
         slug: "communication",
         title: "Communication",
         description: "Stay connected with your student and the university administration.",
-        detail: "Parent portal for fee payments, attendance, and grade access. Semester-wise parent-teacher interactions. Emergency notification system for parents. Dean's office direct line for urgent matters. Monthly newsletter with campus updates and important dates.",
-        features: ["Parent portal", "Parent-teacher meets", "Emergency alerts", "Monthly newsletter"],
+        detail: "Families should rely on official BITS communication channels, student-shared ERP updates, fee notices and SWD or campus office contacts for verified information. For urgent personal, health or welfare concerns, students and parents should contact the relevant campus office directly.",
+        features: ["Official notices", "ERP updates via student", "SWD and campus offices"],
       },
       {
         slug: "anti-ragging",
@@ -333,22 +316,22 @@ Leaders in rhetoric, policymaking and media convene to create a polished platfor
         slug: "labs",
         title: "Labs",
         description: "State-of-the-art research laboratories across all departments.",
-        detail: "60+ specialized labs including AI & ML, VLSI Design, Robotics, Biotech, Nanotechnology, Material Science, and Renewable Energy. Industry-sponsored labs from companies like Samsung, Bosch, and TCS. Open access for research scholars with 24/7 availability. Equipped with cutting-edge instruments and computing clusters.",
-        features: ["60+ research labs", "AI/ML, VLSI, Robotics", "Industry-sponsored labs", "24/7 scholar access"],
+        detail: "Research and teaching laboratories support departmental work across engineering, sciences, computing and interdisciplinary projects. Students encounter lab facilities through coursework, projects, thesis work, workshops and faculty-led research groups.",
+        features: ["Department labs", "Computing facilities", "Workshops and project spaces", "Faculty-led research"],
       },
       {
         slug: "journals",
         title: "Journals",
         description: "University publications, research journals, and academic papers.",
-        detail: "In-house peer-reviewed journals across engineering, sciences, and management. Faculty publish 500+ papers annually in top-tier international journals. Digital repository with open access to theses and dissertations. Research paper writing workshops for students. Subscriptions to IEEE, Springer, Elsevier, and ACM libraries.",
-        features: ["Peer-reviewed journals", "500+ papers / year", "IEEE, Springer, Elsevier access", "Open thesis repository"],
+        detail: "Students and researchers use the library, subscribed databases and department guidance for literature review, paper reading and academic writing. Faculty and scholars publish through external peer-reviewed journals and conferences in their respective disciplines.",
+        features: ["Library resources", "Research databases", "Peer-reviewed publications", "Academic writing support"],
       },
       {
         slug: "innovations",
         title: "Recent Innovations",
         description: "Breakthrough research and innovations from our campus.",
-        detail: "Patents filed for novel technologies in solar energy, water purification, and medical devices. Student startups incubated through on-campus Technology Business Incubator. Collaborative research with international universities and industry partners. Innovation challenges and hackathons fostering creative problem-solving.",
-        features: ["Patents in clean tech", "Student startup incubator", "International collaborations", "Hackathons & challenges"],
+        detail: "Innovation activity at BITS Hyderabad grows through labs, student technical teams, entrepreneurship initiatives, hackathons, workshops and faculty-guided projects. Students use these spaces to prototype, test and present practical ideas.",
+        features: ["Student prototypes", "Technical teams", "Entrepreneurship activity", "Hackathons & workshops"],
       },
       {
         slug: "achievements",

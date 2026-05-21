@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 interface QuickLinksItem {
   label: string;
   onClick: () => void;
+  active?: boolean;
 }
 
 interface QuickLinksProps {
@@ -29,11 +30,13 @@ const QuickLinks = ({ title, items }: QuickLinksProps) => (
           <Button
             key={item.label}
             variant="outline"
-            className="justify-start rounded-2xl px-4 py-3 text-sm text-foreground hover:bg-white/10"
+            className={`h-auto min-h-11 justify-start rounded-2xl px-4 py-3 text-left text-sm leading-snug text-foreground hover:bg-white/10 hover:text-foreground focus-visible:text-foreground whitespace-normal ${
+              item.active ? "border-accent/60 bg-amber/10 !text-accent hover:!text-accent" : ""
+            }`}
             onClick={item.onClick}
           >
             <LinkIcon className="mr-2 h-4 w-4 text-accent" />
-            {item.label}
+            <span className="min-w-0">{item.label}</span>
           </Button>
         ))}
       </motion.div>

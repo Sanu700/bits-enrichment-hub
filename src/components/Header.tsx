@@ -200,15 +200,73 @@ const Header = () => {
 
           {/* RIGHT */}
           <div className="flex items-center gap-4 justify-end">
-            <button className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"><Search className="w-4 h-4" /></button>
+            <button className="hidden sm:inline-flex p-2 rounded-lg text-gray-600 hover:bg-gray-100"><Search className="w-4 h-4" /></button>
 
-            <Link to="/help" className="flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:scale-[1.03] transition-all duration-300">
+            <Link to="/help" className="hidden sm:flex items-center gap-1.5 px-5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 text-white text-sm font-semibold shadow-sm hover:shadow-md hover:scale-[1.03] transition-all duration-300">
               Get Help
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
+            <button
+              type="button"
+              onClick={() => setMobileOpen((open) => !open)}
+              className="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
 
         </div>
+
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="lg:hidden pb-5"
+            >
+              <div className="rounded-2xl border border-gray-200 bg-white shadow-xl p-2 max-h-[calc(100svh-6rem)] overflow-y-auto">
+                {navItems.map((item) => (
+                  <div key={item.path}>
+                    <button
+                      type="button"
+                      onClick={() => setMobileExpanded(mobileExpanded === item.path ? null : item.path)}
+                      className="w-full flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-gray-800 hover:bg-gray-100"
+                    >
+                      {item.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === item.path ? "rotate-180" : ""}`} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileExpanded === item.path && item.children && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <Link to={item.path} className="block rounded-lg px-6 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Overview
+                          </Link>
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.path}
+                              to={child.path}
+                              className="block rounded-lg px-6 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

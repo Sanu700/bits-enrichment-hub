@@ -29,13 +29,16 @@ const VideoCarousel = ({ videos }: VideoCarouselProps) => {
             className="group relative overflow-hidden rounded-3xl border border-white/10 bg-card/80 shadow-lg shadow-[hsl(var(--navy))/0.08]"
           >
             {video.poster ? (
-              <img
-                src={video.poster}
-                alt={video.title}
-                className="h-48 w-full object-cover transition duration-700 group-hover:scale-105"
-              />
+              <div className="aspect-video w-full overflow-hidden bg-muted/10">
+                <img
+                  src={video.poster}
+                  alt={video.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+              </div>
             ) : (
-              <div className="h-48 w-full bg-muted/10" />
+              <div className="aspect-video w-full bg-muted/10" />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
             <div className="absolute inset-0 flex items-center justify-center">

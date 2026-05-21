@@ -15,11 +15,6 @@ import VideoCarousel from "@/components/VideoCarousel";
 import VideoSpotlight from "@/components/VideoSpotlight";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { getItem, getSection } from "@/data/sections";
-import heroLibrary from "@/assets/hero-library.jpg";
-import heroCampus from "@/assets/hero-campus.jpg";
-import heroArchway from "@/assets/hero-archway.jpg";
-
-const bannerImages = [heroLibrary, heroCampus, heroArchway];
 
 interface DetailPageProps {
   sectionKey: string;
@@ -46,13 +41,14 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
 
   const Icon = section.icon;
   const otherItems = section.items.filter((i) => i.slug !== item.slug);
+  const bannerImage = item.gallery?.[0]?.src;
 
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 lg:px-20 overflow-hidden gradient-hero">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-[hsl(var(--amber))/0.08] rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-20 w-96 h-96 bg-[hsl(var(--teal))/0.06] rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-40 md:pb-24 px-6 md:px-12 lg:px-20 overflow-hidden gradient-hero">
+        <div className="absolute top-20 right-4 md:right-10 w-56 h-56 md:w-72 md:h-72 bg-[hsl(var(--amber))/0.08] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-[hsl(var(--teal))/0.06] rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto">
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
@@ -83,7 +79,7 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.95] text-white"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] md:leading-[0.95] text-white"
           >
             {item.title}
           </motion.h1>
@@ -100,6 +96,7 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
       </section>
 
       {/* Wide media banner — gives every detail page a cinematic photo space */}
+      {bannerImage && (
       <section className="px-6 md:px-12 lg:px-20 pt-6 md:pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -109,12 +106,13 @@ const DetailPage = ({ sectionKey }: DetailPageProps) => {
           className="relative max-w-5xl mx-auto"
         >
           <CinematicImage
-            src={bannerImages[(item.slug?.length ?? 0) % bannerImages.length]}
+            src={bannerImage}
             alt={`${item.title} — campus visual`}
             caption={`${section.title}${section.accentText ? ` ${section.accentText}` : ""} · BPHC`}
           />
         </motion.div>
       </section>
+      )}
 
       {/* Detail body */}
       <section className="uni-section">

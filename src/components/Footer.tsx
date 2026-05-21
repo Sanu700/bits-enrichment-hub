@@ -11,9 +11,9 @@ const Footer = () => {
           <div className="md:col-span-3">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl gradient-accent flex items-center justify-center font-display font-bold text-sm text-white shadow-lg shadow-amber/20">
-                U
+                B
               </div>
-              <span className="font-display text-xl font-bold text-white">University</span>
+              <span className="font-display text-xl font-bold text-white">BITS Hyderabad</span>
             </div>
             <p className="text-sm leading-relaxed font-body text-white/40 max-w-xs">
               Empowering students to thrive academically, personally,
@@ -55,7 +55,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-body text-white/30">
-          <span>© {new Date().getFullYear()} University. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} BITS Hyderabad. All rights reserved.</span>
           <div className="flex gap-6">
             <span className="hover:text-white transition-colors cursor-pointer">Privacy</span>
             <span className="hover:text-white transition-colors cursor-pointer">Terms</span>

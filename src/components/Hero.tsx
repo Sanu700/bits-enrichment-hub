@@ -26,12 +26,12 @@ const Hero = () => {
         />
 
         {/* LIGHTER overlays (fix darkness) */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.45),rgba(15,23,42,0.25),rgba(15,23,42,0.6))]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.55),transparent,rgba(20,184,166,0.08))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.35),rgba(15,23,42,0.18),rgba(15,23,42,0.5))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.45),transparent,rgba(20,184,166,0.08))]" />
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-32 sm:pt-36 md:pt-48 pb-12 sm:pb-16 md:pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-28 sm:pt-36 md:pt-48 pb-12 sm:pb-16 md:pb-20">
         <div className="max-w-3xl">
 
           {/* Badge */}
@@ -67,7 +67,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-8 text-white/80 max-w-xl text-lg leading-relaxed"
+            className="mt-6 sm:mt-8 text-white/80 max-w-xl text-base sm:text-lg leading-relaxed"
           >
             From rigorous engineering and pharmacy programs to the celebrated
             Practice School and global 2+2 pathways — your single gateway to

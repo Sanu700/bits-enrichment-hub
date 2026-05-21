@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import PageLayout from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { getItem, getSection } from "@/data/sections";
-import heroLibrary from "@/assets/hero-library.jpg";
+import { officialMedia } from "@/data/media";
 
 // External virtual tour URL — single source of truth
 const TOUR_URL = "https://bits-hyderabad.ac.in/bphcvirtualtour/index.htm";
 
 const areas = [
-  { title: "Academic Block", subtitle: "Lecture halls & labs", img: heroLibrary },
-  { title: "Hostels", subtitle: "Residential life", img: heroLibrary },
-  { title: "Library", subtitle: "Study & archives", img: heroLibrary },
-  { title: "Sports Facilities", subtitle: "Fields & courts", img: heroLibrary },
-  { title: "Campus Life", subtitle: "Plazas & greens", img: heroLibrary },
+  { title: "Academic Block", subtitle: "Lecture halls & labs", img: officialMedia.campusInfrastructure },
+  { title: "Hostels", subtitle: "Residential life", img: officialMedia.hostel },
+  { title: "Library", subtitle: "Study & archives", img: officialMedia.library },
+  { title: "Sports Facilities", subtitle: "Fields & courts", img: officialMedia.sports },
+  { title: "Campus Life", subtitle: "Plazas & greens", img: officialMedia.studentFacilities },
 ];
 
 // Hotspots positioned over the immersive hero card (percentages)
@@ -37,9 +37,9 @@ const VirtualTourPage = () => {
   return (
     <PageLayout>
       {/* Hero — reuse existing structure */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 lg:px-20 overflow-hidden gradient-hero">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-[hsl(var(--amber))/0.08] rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-20 w-96 h-96 bg-[hsl(var(--teal))/0.06] rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-16 md:pt-40 md:pb-24 px-6 md:px-12 lg:px-20 overflow-hidden gradient-hero">
+        <div className="absolute top-20 right-4 md:right-10 w-56 h-56 md:w-72 md:h-72 bg-[hsl(var(--amber))/0.08] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-4 md:left-20 w-72 h-72 md:w-96 md:h-96 bg-[hsl(var(--teal))/0.06] rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto">
           <Button
@@ -63,7 +63,7 @@ const VirtualTourPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[0.95] text-white"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] md:leading-[0.95] text-white"
           >
             {item.title}
           </motion.h1>
@@ -94,7 +94,7 @@ const VirtualTourPage = () => {
                 className="group mt-5 relative overflow-hidden rounded-3xl cursor-pointer aspect-[16/10] md:aspect-[16/9] glass-card p-0 shadow-2xl shadow-[hsl(var(--amber))/0.15]"
               >
                 <img
-                  src={heroLibrary}
+                  src={officialMedia.virtualTourFrame}
                   alt="BITS Hyderabad campus aerial preview"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 />

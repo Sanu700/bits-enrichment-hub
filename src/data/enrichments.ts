@@ -11,23 +11,41 @@
  *  - BITS Pilani Hyderabad official website
  */
 import type { DetailItem } from "@/data/sections";
+import { officialMedia } from "@/data/media";
 
-import hostelExterior from "@/assets/hostel-exterior.jpg";
-import hostelRoom from "@/assets/hostel-room.jpg";
-import hostelCommon from "@/assets/hostel-common.jpg";
-import messDining from "@/assets/mess-dining.jpg";
-import practiceSchool from "@/assets/practice-school.jpg";
-import festNight from "@/assets/fest-night.jpg";
-import festStage from "@/assets/fest-stage.jpg";
-import medicalCenter from "@/assets/medical-center.jpg";
-import mpowerRoom from "@/assets/mpower-room.jpg";
-import campusAerial from "@/assets/campus-aerial.jpg";
-import clubsCultural from "@/assets/clubs-cultural.jpg";
-import clubsTechnical from "@/assets/clubs-technical.jpg";
-import heroLibrary from "@/assets/hero-library.jpg";
-import heroCampus from "@/assets/hero-campus.jpg";
-import heroArchway from "@/assets/hero-archway.jpg";
-import heroMain from "@/assets/hero-main.jpg";
+const officialAcademicBlock = officialMedia.uploadedInfrastructure;
+const officialCampus = officialMedia.uploadedRockGarden;
+const officialCampusAlt = officialMedia.uploadedCampusNight;
+const officialClassroom = officialMedia.uploadedClassroom;
+const officialClubs = officialMedia.uploadedAuditorium;
+const officialClubsAlt = officialMedia.studentFacilitiesAlt;
+const officialHostel = officialMedia.uploadedBoysHostel;
+const officialHostelAlt = officialMedia.hostelAlt;
+const officialHostelRoom = officialMedia.hostelRoom;
+const officialLab = officialMedia.uploadedLab;
+const officialLibrary = officialMedia.uploadedLibrary;
+const officialArena = officialMedia.uploadedBasketballCourt;
+const officialAtmos = officialMedia.atmos;
+const officialMedical = officialMedia.medical;
+const officialMedicalRoom = officialMedia.medicalAlt;
+const officialConvocation = officialMedia.convocation;
+
+const campusAerial = officialCampus;
+const heroArchway = officialCampusAlt;
+const heroCampus = officialAcademicBlock;
+const heroLibrary = officialLibrary;
+const heroMain = officialCampus;
+const hostelExterior = officialHostel;
+const hostelRoom = officialHostelRoom;
+const hostelCommon = officialHostelAlt;
+const messDining = officialMedia.studentFacilities;
+const practiceSchool = officialMedia.uploadedWorkshop;
+const clubsCultural = officialMedia.uploadedAuditorium;
+const clubsTechnical = officialMedia.uploadedCcLab;
+const festNight = officialMedia.pearlFrame;
+const festStage = officialMedia.pearlFrame;
+const medicalCenter = officialMedicalRoom;
+const mpowerRoom = officialMedicalRoom;
 
 type Enrichment = Pick<DetailItem, "gallery" | "video" | "videos" | "resources">;
 
@@ -36,9 +54,9 @@ export const enrichments: Record<string, Enrichment> = {
   // ───────── ACADEMICS ─────────
   "acads/programs": {
     gallery: [
-      { src: heroLibrary, caption: "Central Library", alt: "BPHC central library" },
-      { src: campusAerial, caption: "Aerial · BPHC campus" },
-      { src: heroCampus, caption: "Academic block" },
+      { src: officialLibrary, caption: "Central Library", alt: "BPHC central library" },
+      { src: officialClassroom, caption: "Classrooms" },
+      { src: officialAcademicBlock, caption: "Academic block" },
     ],
     resources: [
       {
@@ -62,10 +80,19 @@ export const enrichments: Record<string, Enrichment> = {
     ],
   },
 
+  "acads/academic-buildings": {
+    gallery: [
+      { src: officialClassroom, caption: "Lecture hall" },
+      { src: officialAcademicBlock, caption: "Academic infrastructure" },
+      { src: officialMedia.uploadedAuditorium, caption: "Auditorium" },
+      { src: officialLibrary, caption: "Central Library" },
+    ],
+  },
+
   "acads/ps-placements": {
     gallery: [
       { src: practiceSchool, caption: "PS station · industry collaboration" },
-      { src: clubsTechnical, caption: "Lab projects feeding into PS" },
+      { src: officialLab, caption: "Lab projects feeding into PS" },
       { src: heroLibrary, caption: "PS prep · library research" },
     ],
     resources: [
@@ -115,10 +142,6 @@ export const enrichments: Record<string, Enrichment> = {
   },
 
   "admissions/scholarships": {
-    gallery: [
-      { src: heroLibrary, caption: "Aided learning · merit + need" },
-      { src: campusAerial, caption: "A campus you can afford" },
-    ],
     resources: [
       {
         label: "SWD — Scholarship Portal",
@@ -129,7 +152,7 @@ export const enrichments: Record<string, Enrichment> = {
       {
         label: "Merit-Cum-Need (MCN) Guidelines",
         url: "https://www.bits-pilani.ac.in/scholarships/",
-        description: "Eligibility (parental income < ₹15 LPA, 2024-25), slabs and renewal.",
+        description: "Current eligibility, income documentation, slabs and renewal guidance.",
         icon: "book",
       },
     ],
@@ -206,11 +229,6 @@ export const enrichments: Record<string, Enrichment> = {
 
   // ───────── CAMPUS LIFE ─────────
   "campus-life/clubs": {
-    gallery: [
-      { src: clubsCultural, caption: "Cultural · Cypher, Crimson Curtain, Music" },
-      { src: clubsTechnical, caption: "Technical · cruX, SEDS, Aeolus" },
-      { src: festStage, caption: "100+ student bodies" },
-    ],
     resources: [
       {
         label: "Student Union — BPHC",
@@ -227,6 +245,21 @@ export const enrichments: Record<string, Enrichment> = {
     ],
   },
 
+  "campus-life/campus-places": {
+    gallery: [
+      { src: officialMedia.uploadedCp, caption: "Connaught Place" },
+      { src: officialMedia.uploadedRockGarden, caption: "Green campus spaces" },
+      { src: officialMedia.uploadedCampusNight, caption: "Campus infrastructure" },
+    ],
+  },
+
+  "campus-life/student-union": {
+    gallery: [
+      { src: officialMedia.uploadedAuditorium, caption: "Campus events" },
+      { src: officialMedia.uploadedRockGarden, caption: "Student gathering spaces" },
+    ],
+  },
+
   "campus-life/hostels": {
     gallery: [
       { src: hostelExterior, caption: "8 boys' + 3 girls' hostels" },
@@ -235,10 +268,10 @@ export const enrichments: Record<string, Enrichment> = {
       { src: messDining, caption: "Mess 1 & Mess 2 · ₹143/day" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
-      title: "Hostel & Campus Life at BPHC",
-      caption: "A walk through the residential campus — Valmiki, Gautam, Malviya, Vyas, Krishna, Ram, Shankar, Budh, Meera, Gandhi and Saraswati Bhawans.",
-      poster: hostelExterior,
+      url: "https://www.youtube.com/embed/joa6TC83xgE",
+      title: "Hostels & Campus Life",
+      caption: "Student life and hostel experience at BITS Hyderabad.",
+      poster: "https://img.youtube.com/vi/joa6TC83xgE/maxresdefault.jpg",
     },
     resources: [
       {
@@ -259,9 +292,9 @@ export const enrichments: Record<string, Enrichment> = {
   "campus-life/fests": {
     gallery: [
       { src: festNight, caption: "Pro-night · main stage" },
-      { src: festStage, caption: "Cultural · dance & music" },
-      { src: clubsCultural, caption: "Regional cultural night" },
-      { src: clubsTechnical, caption: "Technical fest · APOGEE" },
+      { src: officialMedia.uploadedAuditorium, caption: "Cultural events" },
+      { src: officialAtmos, caption: "ATMOS · tech fest" },
+      { src: officialArena, caption: "ARENA · sports" },
     ],
     video: {
       url: "https://www.youtube.com/embed/yT-3eMlnzpU",
@@ -271,113 +304,13 @@ export const enrichments: Record<string, Enrichment> = {
     },
     resources: [
       {
-        label: "BITS Pilani Fests",
+        label: "BITS Hyderabad Fests",
         url: "https://www.bits-pilani.ac.in/",
-        description: "APOGEE (technical), Oasis (cultural), BSF (sports).",
+        description: "PEARL (cultural), ATMOS (technical), ARENA (sports), Launchpad and Verba Maximus.",
         icon: "external",
       },
     ],
   },
-
-  "campus-life/pearl": {
-    gallery: [
-      { src: festStage, caption: "Live stage performances" },
-      { src: clubsCultural, caption: "Music, dance, and theatre" },
-    ],
-    videos: [
-      {
-        url: "https://www.youtube.com/embed/yT-3eMlnzpU",
-        title: "PEARL Aftermovie",
-        caption: "An immersive look at BITS Hyderabad's cultural flagship.",
-        poster: festNight,
-      },
-    ],
-    resources: [
-      {
-        label: "PEARL Fest Page",
-        url: "https://www.bits-pilani.ac.in/",
-        description: "Stay updated on performers, schedule and guest events.",
-        icon: "external",
-      },
-    ],
-  },
-
-  "campus-life/atmos": {
-    gallery: [
-      { src: clubsTechnical, caption: "Innovation showcase" },
-      { src: festStage, caption: "Creative installations" },
-    ],
-    videos: [
-      {
-        url: "https://www.youtube.com/embed/PZwfHQ4p6hQ",
-        title: "ATMOS Highlights",
-        caption: "Tech, design and immersive campus energy.",
-        poster: clubsTechnical,
-      },
-    ],
-    resources: [
-      {
-        label: "ATMOS Fest Info",
-        url: "https://www.bits-pilani.ac.in/",
-        description: "Workshop schedules, speaker lineups and project showcases.",
-        icon: "external",
-      },
-    ],
-  },
-
-  "campus-life/arena": {
-    gallery: [
-      { src: festNight, caption: "Sports arena energy" },
-      { src: heroCampus, caption: "Campus fields and courts" },
-    ],
-    videos: [
-      {
-        url: "https://www.youtube.com/embed/JIWNk4zqAfI",
-        title: "ARENA Sports Highlights",
-        caption: "Top sporting moments from campus tournaments.",
-        poster: heroCampus,
-      },
-    ],
-    resources: [
-      {
-        label: "ARENA Schedule",
-        url: "https://www.bits-pilani.ac.in/",
-        description: "Tournament brackets, registration and athlete details.",
-        icon: "external",
-      },
-    ],
-  },
-
-  "campus-life/launchpad": {
-    gallery: [
-      { src: clubsTechnical, caption: "Startup showcases" },
-      { src: heroArchway, caption: "Innovation ecosystems" },
-    ],
-    resources: [
-      {
-        label: "Launchpad Events",
-        url: "https://www.bits-pilani.ac.in/",
-        description: "Entrepreneurship workshops, pitch clinics and mentor meets.",
-        icon: "external",
-      },
-    ],
-  },
-
-  "campus-life/verba-maximus": {
-    gallery: [
-      { src: heroLibrary, caption: "Debate and literary forums" },
-      { src: festStage, caption: "Public speaking stages" },
-    ],
-    resources: [
-      {
-        label: "Verba Maximus Guide",
-        url: "https://www.bits-pilani.ac.in/",
-        description: "Debate formats, quiz events and speaker lineups.",
-        icon: "external",
-      },
-    ],
-  },
-
   "campus-life/virtual-tour": {
     gallery: [
       { src: campusAerial, caption: "Aerial — full campus" },
@@ -386,12 +319,6 @@ export const enrichments: Record<string, Enrichment> = {
       { src: heroCampus, caption: "Academic block" },
       { src: hostelExterior, caption: "Hostels" },
     ],
-    video: {
-      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
-      title: "BITS Hyderabad — Virtual Tour",
-      caption: "A walkthrough of academic blocks, hostels, mess, sports facilities and the lake.",
-      poster: campusAerial,
-    },
     resources: [
       {
         label: "Open the Interactive Tour",
@@ -447,11 +374,34 @@ export const enrichments: Record<string, Enrichment> = {
     ],
   },
 
+  // ───────── RESEARCH ─────────
+  "research/labs": {
+    gallery: [
+      { src: officialMedia.uploadedLab, caption: "Research laboratory" },
+      { src: officialMedia.uploadedWorkshop, caption: "Engineering workshop" },
+      { src: officialMedia.uploadedCcLab, caption: "Computing lab" },
+    ],
+  },
+
+  "research/innovations": {
+    gallery: [
+      { src: officialMedia.uploadedWorkshop, caption: "Workshop and prototyping" },
+      { src: officialMedia.uploadedLab, caption: "Lab-based innovation" },
+    ],
+  },
+
+  "research/journals": {
+    gallery: [
+      { src: officialLibrary, caption: "Library and research resources" },
+      { src: officialMedia.uploadedLab, caption: "Research facilities" },
+    ],
+  },
+
   // ───────── HEALTH ─────────
   "health/medical-center": {
     gallery: [
-      { src: medicalCenter, caption: "On-campus health centre" },
-      { src: mpowerRoom, caption: "Consultation rooms" },
+      { src: officialMedical, caption: "On-campus health centre" },
+      { src: medicalCenter, caption: "Medical support space" },
     ],
     resources: [
       {
@@ -472,7 +422,7 @@ export const enrichments: Record<string, Enrichment> = {
   "health/mpower": {
     gallery: [
       { src: mpowerRoom, caption: "Confidential counselling space" },
-      { src: medicalCenter, caption: "Wellness team" },
+      { src: officialMedicalRoom, caption: "Wellness support space" },
     ],
     resources: [
       {
@@ -573,7 +523,7 @@ export const enrichments: Record<string, Enrichment> = {
   // ───────── ALUMNI ─────────
   "alumni/bitsaa": {
     gallery: [
-      { src: campusAerial, caption: "From BPHC to the world" },
+      { src: officialConvocation, caption: "Convocation · BPHC" },
       { src: heroArchway, caption: "Where the journey begins" },
     ],
     resources: [

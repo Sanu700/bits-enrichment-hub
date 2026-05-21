@@ -50,15 +50,21 @@ const ContentPage = ({
   const [selectedItem, setSelectedItem] = useState<ContentItem | null>(null);
 
   useEffect(() => {
-    if (!location.hash) return;
+    if (!location.hash) {
+      setSelectedItem(null);
+      return;
+    }
 
     const targetId = decodeURIComponent(location.hash.slice(1));
+    const matchingItem = items.find((item) => item.slug === targetId);
+
     const id = window.setTimeout(() => {
       window.requestAnimationFrame(() => {
         document.getElementById(targetId)?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
+        if (matchingItem) setSelectedItem(matchingItem);
       });
     }, 120);
 
@@ -84,12 +90,18 @@ const ContentPage = ({
             title={`Quick Jump`}
             items={items.map((item) => ({
               label: item.title,
+              active: item.slug ? location.hash === `#${item.slug}` : false,
               onClick: () => {
                 if (!item.slug) {
                   setSelectedItem(item);
                   return;
                 }
 
+                setSelectedItem(item);
+                document.getElementById(item.slug)?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
                 navigate(`${basePath}#${item.slug}`);
               },
             }))}
@@ -122,7 +134,14 @@ const ContentPage = ({
       </section>
 
       {/* Detail Modal */}
-      <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
+      <Dialog
+        open={!!selectedItem}
+        onOpenChange={(open) => {
+          if (open) return;
+          setSelectedItem(null);
+          if (location.hash) navigate(basePath, { replace: true });
+        }}
+      >
         <DialogContent className="max-w-lg border-border bg-card p-0 overflow-hidden rounded-2xl">
           <div className={`h-2 bg-gradient-to-r ${gradient}`} />
           <div className="p-8 md:p-10">
@@ -149,7 +168,10 @@ const ContentPage = ({
               />
               <Button
                 variant="outline"
-                onClick={() => setSelectedItem(null)}
+                onClick={() => {
+                  setSelectedItem(null);
+                  if (location.hash) navigate(basePath, { replace: true });
+                }}
                 className="font-body rounded-full px-8 text-sm"
               >
                 Close

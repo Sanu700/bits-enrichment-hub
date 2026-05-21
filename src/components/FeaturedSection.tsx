@@ -42,8 +42,8 @@ const FeaturedSection = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-foreground/10 group bg-foreground/5">
               <img
                 src={heroLibrary}
-                alt="University library"
-                className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                alt="BITS Hyderabad library"
+                className="w-full h-[320px] sm:h-[400px] md:h-[500px] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
                 loading="lazy"
                 width={1920}
                 height={800}
@@ -61,7 +61,7 @@ const FeaturedSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="absolute -bottom-6 -right-4 md:right-8 bg-card/90 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-border/50"
+              className="absolute left-1/2 -bottom-6 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-4 md:right-8 w-[min(92%,20rem)] bg-card/90 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-border/50"
             >
               <div className="font-display text-3xl font-bold gradient-text">100+</div>
               <div className="text-[11px] font-body font-semibold tracking-[0.1em] uppercase text-muted-foreground mt-1">
