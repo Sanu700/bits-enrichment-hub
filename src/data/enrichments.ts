@@ -68,13 +68,23 @@ export const enrichments: Record<string, Enrichment> = {
       { src: clubsTechnical, caption: "Lab projects feeding into PS" },
       { src: heroLibrary, caption: "PS prep · library research" },
     ],
-    video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Practice School at BITS Pilani",
-      caption:
-        "How PS-I (2-month summer) and PS-II (semester-long, paid) embed real industry experience into your degree.",
-      poster: practiceSchool,
-    },
+    resources: [
+      {
+        label: "Practice School Division",
+        url: "https://www.bits-pilani.ac.in/practice-school/",
+        description: "Official PS site — stations, schedules, and FAQs.",
+        icon: "external",
+      },
+      {
+        label: "Placement Cell — BPHC",
+        url: "https://www.bits-pilani.ac.in/hyderabad/placements/",
+        description: "Recruiter list, sector-wise stats, and placement reports.",
+        icon: "book",
+      },
+    ],
+  },
+
+  "admissions/welcome-guide-placeholder": {
     resources: [
       {
         label: "Practice School Division",
