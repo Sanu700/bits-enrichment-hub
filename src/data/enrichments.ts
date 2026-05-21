@@ -375,12 +375,6 @@ export const enrichments: Record<string, Enrichment> = {
       { src: mpowerRoom, caption: "Confidential counselling space" },
       { src: medicalCenter, caption: "Wellness team" },
     ],
-    video: {
-      url: "https://www.youtube.com/embed/inpok4MKVLM",
-      title: "5-Minute Mindfulness",
-      caption: "A short guided practice you can use before exams or whenever you need a reset.",
-      poster: mpowerRoom,
-    },
     resources: [
       {
         label: "MPower 1on1 Helpline",
