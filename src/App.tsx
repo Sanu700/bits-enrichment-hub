@@ -15,6 +15,7 @@ import AlumniPage from "./pages/AlumniPage";
 import HelpPage from "./pages/HelpPage";
 import DetailPage from "./components/DetailPage";
 import Chatbot from "./components/Chatbot";
+import ScrollToTop from "./components/ScrollToTop";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
 

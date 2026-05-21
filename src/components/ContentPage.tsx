@@ -101,7 +101,13 @@ const ContentPage = ({
                   title={item.title}
                   description={item.description}
                   gradient={gradient}
-                  onClick={() => setSelectedItem(item)}
+                  onClick={() => {
+                    if (item.slug) {
+                      navigate(`${basePath}/${item.slug}`);
+                      return;
+                    }
+                    setSelectedItem(item);
+                  }}
                 />
               </motion.div>
             ))}

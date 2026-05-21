@@ -24,6 +24,12 @@ const features = [
   },
 ];
 
+const featureTargets: Record<string, string> = {
+  "Practice School Program": "/acads/ps-placements",
+  "Welfare-First Campus": "/help/swd",
+  "Global 2+2 Pathways": "/admissions/admission-process",
+};
+
 const FeaturedSection = () => {
   const navigate = useNavigate();
 
@@ -96,7 +102,7 @@ const FeaturedSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="flex gap-4 group cursor-pointer"
-                  onClick={() => navigate("/campus-life")}
+                  onClick={() => navigate(featureTargets[feature.title] ?? "/campus-life")}
                 >
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                     <feature.icon className="w-4.5 h-4.5 text-white" />
