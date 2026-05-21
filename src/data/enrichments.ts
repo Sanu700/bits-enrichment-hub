@@ -68,13 +68,6 @@ export const enrichments: Record<string, Enrichment> = {
       { src: clubsTechnical, caption: "Lab projects feeding into PS" },
       { src: heroLibrary, caption: "PS prep · library research" },
     ],
-    video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Practice School at BITS Pilani",
-      caption:
-        "How PS-I (2-month summer) and PS-II (semester-long, paid) embed real industry experience into your degree.",
-      poster: practiceSchool,
-    },
     resources: [
       {
         label: "Practice School Division",
@@ -90,6 +83,7 @@ export const enrichments: Record<string, Enrichment> = {
       },
     ],
   },
+
 
   // ───────── ADMISSIONS ─────────
   "admissions/admission-process": {
@@ -241,8 +235,8 @@ export const enrichments: Record<string, Enrichment> = {
       { src: messDining, caption: "Mess 1 & Mess 2 · ₹143/day" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Hostel Life at BPHC",
+      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
+      title: "Hostel & Campus Life at BPHC",
       caption: "A walk through the residential campus — Valmiki, Gautam, Malviya, Vyas, Krishna, Ram, Shankar, Budh, Meera, Gandhi and Saraswati Bhawans.",
       poster: hostelExterior,
     },
@@ -270,9 +264,9 @@ export const enrichments: Record<string, Enrichment> = {
       { src: clubsTechnical, caption: "Technical fest · APOGEE" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Fests at BITS — A Glimpse",
-      caption: "From APOGEE and Oasis to BITS Sports Festival — what a fest weekend looks like.",
+      url: "https://www.youtube.com/embed/yT-3eMlnzpU",
+      title: "PEARL · BPHC Cultural Fest — Aftermovie",
+      caption: "A glimpse of PEARL, ATMOS, ARENA, Launchpad and Verba Maximus — the five flagship student-run fests of BPHC.",
       poster: festNight,
     },
     resources: [
@@ -294,9 +288,9 @@ export const enrichments: Record<string, Enrichment> = {
       { src: hostelExterior, caption: "Hostels" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
+      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
       title: "BITS Hyderabad — Virtual Tour",
-      caption: "A 360° walkthrough of academic blocks, hostels, sports facilities and the lake.",
+      caption: "A walkthrough of academic blocks, hostels, mess, sports facilities and the lake.",
       poster: campusAerial,
     },
     resources: [
