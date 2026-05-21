@@ -294,9 +294,9 @@ export const enrichments: Record<string, Enrichment> = {
       { src: hostelExterior, caption: "Hostels" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
+      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
       title: "BITS Hyderabad — Virtual Tour",
-      caption: "A 360° walkthrough of academic blocks, hostels, sports facilities and the lake.",
+      caption: "A walkthrough of academic blocks, hostels, mess, sports facilities and the lake.",
       poster: campusAerial,
     },
     resources: [
