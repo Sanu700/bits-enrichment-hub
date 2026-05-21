@@ -270,9 +270,9 @@ export const enrichments: Record<string, Enrichment> = {
       { src: clubsTechnical, caption: "Technical fest · APOGEE" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Fests at BITS — A Glimpse",
-      caption: "From APOGEE and Oasis to BITS Sports Festival — what a fest weekend looks like.",
+      url: "https://www.youtube.com/embed/yT-3eMlnzpU",
+      title: "PEARL · BPHC Cultural Fest — Aftermovie",
+      caption: "A glimpse of PEARL, ATMOS, ARENA, Launchpad and Verba Maximus — the five flagship student-run fests of BPHC.",
       poster: festNight,
     },
     resources: [
