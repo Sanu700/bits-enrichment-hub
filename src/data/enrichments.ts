@@ -84,22 +84,6 @@ export const enrichments: Record<string, Enrichment> = {
     ],
   },
 
-  "admissions/welcome-guide-placeholder": {
-    resources: [
-      {
-        label: "Practice School Division",
-        url: "https://www.bits-pilani.ac.in/practice-school/",
-        description: "Official PS site — stations, schedules, and FAQs.",
-        icon: "external",
-      },
-      {
-        label: "Placement Cell — BPHC",
-        url: "https://www.bits-pilani.ac.in/hyderabad/placements/",
-        description: "Recruiter list, sector-wise stats, and placement reports.",
-        icon: "book",
-      },
-    ],
-  },
 
   // ───────── ADMISSIONS ─────────
   "admissions/admission-process": {
