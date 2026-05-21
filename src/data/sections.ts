@@ -355,7 +355,7 @@ Supports diverse academic and career pathways.`,
         description: "On-campus healthcare with doctors, pharmacy, and diagnostics.",
         detail: "Fully equipped health center open 7 days a week.\n General physicians, dentist, and visiting specialists.\n Basic diagnostic facilities including blood tests and X-ray.\n Pharmacy stocked with essential medicines.\n Free consultations for enrolled students.\n Referral system for specialist treatment at city hospitals.",
         features: ["7-day medical center", "Physicians & dentist", "Pharmacy & diagnostics", "Free student consults"],
-        contacts: [{ label: "Medical Center", value: "+91-00000-00000" }],
+        contacts: [{ label: "Medical Center", value: "+91-40-6630-3999" }, { label: "SWD", value: "+91-40-6630-3535" }],
       },
       {
         slug: "mpower",
