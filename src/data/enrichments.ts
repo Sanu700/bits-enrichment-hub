@@ -241,8 +241,8 @@ export const enrichments: Record<string, Enrichment> = {
       { src: messDining, caption: "Mess 1 & Mess 2 · ₹143/day" },
     ],
     video: {
-      url: "https://www.youtube.com/embed/9bZkp7q19f0",
-      title: "Hostel Life at BPHC",
+      url: "https://www.youtube.com/embed/IPBNjL6YpF8",
+      title: "Hostel & Campus Life at BPHC",
       caption: "A walk through the residential campus — Valmiki, Gautam, Malviya, Vyas, Krishna, Ram, Shankar, Budh, Meera, Gandhi and Saraswati Bhawans.",
       poster: hostelExterior,
     },
